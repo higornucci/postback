@@ -12,8 +12,6 @@ namespace Postback.UI.WebApp.Controllers
             _quadroRepositorio = quadroRepositorio;
         }
 
-        //
-        // GET: /PostIt/
         public ActionResult Index()
         {
             return View();
