@@ -1,14 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using NHibernate;
 using Postback.Dominio;
 
 namespace PostBack.Infra.Persistencia.Repositorios
 {
     public class PostItRepositorio: RepositorioBase<PostIt>
     {
-        public IEnumerable<PostIt> ObterPorEvento(int id)
-        {
-            //TODO: Implementar
-            return null;
-        }
+        public PostItRepositorio(ISession sessao) : base(sessao) { }
     }
 }
