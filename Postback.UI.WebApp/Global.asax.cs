@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Postback.UI.WebApp.Controllers;
+using PostBack.Infra.Persistencia.Convencoes;
+using PostBack.Infra.Persistencia.SessionFactory;
+using SimpleInjector;
+using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -8,7 +10,7 @@ using System.Web.Routing;
 
 namespace Postback.UI.WebApp
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -16,6 +18,30 @@ namespace Postback.UI.WebApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            ConfigurarOrm();
+            ConfigurarInjecaoDeDependencia();
+        }
+
+        private static void ConfigurarOrm()
+        {
+            Contexto.SessionFactory = (new ConfiguradorDeSessionFactory()).CriarSessionFactory(ServidorDePublicacao.Producao);
+        }
+
+        private static void ConfigurarInjecaoDeDependencia()
+        {
+            var container = new Container();
+            ControllerBuilder.Current.SetControllerFactory(new WebAppControllerFactory(container));
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            Contexto.LigarContextoDaSessaoNh();
+        }
+
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            Contexto.DesligarContextoDaSessaoNh();
         }
     }
 }
