@@ -1,4 +1,5 @@
 ﻿using Postback.Dominio;
+using Postback.UI.WebApp.ViewModels;
 using System.Web.Mvc;
 
 namespace Postback.UI.WebApp.Controllers
@@ -9,11 +10,11 @@ namespace Postback.UI.WebApp.Controllers
         private readonly IPostItRepositorio _postItRepositorio;
         private readonly ICategoriaRepositorio _categoriaRepositorio;
 
-        public PostItController(IQuadroRepositorio quadroRepositorio, IPostItRepositorio postItRepositorio)
+        public PostItController(IQuadroRepositorio quadroRepositorio, IPostItRepositorio postItRepositorio, ICategoriaRepositorio categoriaRepositorio)
         {
             _quadroRepositorio = quadroRepositorio;
             _postItRepositorio = postItRepositorio;
-            //_categoriaRepositorio = categoriaRepositorio;
+            _categoriaRepositorio = categoriaRepositorio;
         }
 
         public ActionResult Index()
@@ -37,9 +38,16 @@ namespace Postback.UI.WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Criar(PostIt postIt)
+        public JsonResult Post(PostItVm postItVm)
         {
-            return View();
+            var categoria = _categoriaRepositorio.ObterPor(postItVm.CategoriaId);
+            var quadro = _quadroRepositorio.ObterPor(postItVm.QuadroId);
+            var tag = new Tag(postItVm.TagNome);
+
+            var postIt = new PostIt(postItVm.Conteudo, quadro, categoria, tag);
+            _postItRepositorio.Adicionar(postIt);
+
+            return Json(new { sucesso = true });
         }
     }
 }

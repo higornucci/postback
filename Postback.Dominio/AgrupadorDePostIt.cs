@@ -65,7 +65,7 @@ namespace Postback.Dominio
 
         private PostIt Criar()
         {
-            return new PostIt() { Tag = _tag, Categoria = _categoria, Conteudo = _conteudo };
+            return new PostIt(_conteudo, null, _categoria, _tag);
         }
 
         public static PostItBuilder UmPostIt()
