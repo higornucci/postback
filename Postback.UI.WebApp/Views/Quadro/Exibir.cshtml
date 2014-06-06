@@ -8,15 +8,15 @@
 
 <h1>@Model.Quadro.Descricao</h1>
 
-<ul>
+<ul class="template centralizado">
     @foreach (var categoria in Model.Grupos.GroupBy(x => x.Categoria))
     {
-        <li>
+        <li class="categoria">
             <h2>@categoria.Key.Descricao</h2>
 
             @foreach (var grupo in Model.Grupos.Where(x => x.Categoria.Descricao == categoria.Key.Descricao))
             {
-                <ul>
+                <ul class="agrupamento primeiraCategoria">
                     @foreach(var postIt in grupo.PostIts)
                     {
                         <li class="postIt">

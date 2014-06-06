@@ -14,8 +14,6 @@ namespace Postback.UI.WebApp.Controllers
             _postItRepositorio = postItRepositorio;
         }
 
-        //
-        // GET: /PostIt/
         public ActionResult Index()
         {
             return View();
