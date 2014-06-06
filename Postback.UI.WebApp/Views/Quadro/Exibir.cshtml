@@ -12,12 +12,12 @@
 <ul class="template centralizado">
     @foreach (var categoria in Model.Grupos.GroupBy(x => x.Categoria))
     {
-        <li class="categoria">
+        <li data="@categoria.Key.Descricao" class="categoria">
             <h2>@categoria.Key.Descricao</h2>
 
             @foreach (var grupo in Model.Grupos.Where(x => x.Categoria.Descricao == categoria.Key.Descricao))
             {
-                <ul class="agrupamento grupo">
+                <ul data-tag="@grupo.Assunto" class="agrupamento grupo">
                     @foreach(var postIt in grupo.PostIts)
                     {
                         <li class="postIt" style="border-left: solid 5px @categoria.Key.CorHexadecimal;">
