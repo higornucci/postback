@@ -155,18 +155,20 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\logo-postback.jpg" />
-    <Content Include="Content\lib\css\format.css" />
+    <Content Include="Content\lib\css\format.css">
+      <DependentUpon>format.less</DependentUpon>
+    </Content>
     <Content Include="Content\quadro.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\lib\css\format.less" />
+    <Content Include="Content\lib\css\format.css.map">
+      <DependentUpon>format.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\postbackhackaton - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\postbackhackaton - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\postbackhackaton - Web Deploy %282%29.pubxml" />
