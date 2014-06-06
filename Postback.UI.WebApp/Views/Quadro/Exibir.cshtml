@@ -3,16 +3,29 @@
 
 @{
     ViewBag.Title = "title";
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Quadro.Descricao</h2>
+<h1>@Model.Quadro.Descricao</h1>
 
 <ul>
-    @foreach (var categoria in Model.Quadro.Categorias)
+    @foreach (var categoria in Model.Grupos.GroupBy(x => x.Categoria))
     {
         <li>
-            <h2></h2>
+            <h2>@categoria.Key.Descricao</h2>
+
+            @foreach (var grupo in Model.Grupos.Where(x => x.Categoria.Descricao == categoria.Key.Descricao))
+            {
+                <ul>
+                    @foreach(var postIt in grupo.PostIts)
+                    {
+                        <li class="postIt">
+                            <p class="conteudo">@postIt.Conteudo</p>
+                            <p class="hashtag">@postIt.Assunto</p>
+                        </li>
+                    }
+                </ul>
+            }
         </li>
     }
 </ul>

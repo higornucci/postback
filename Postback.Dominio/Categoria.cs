@@ -8,7 +8,7 @@ namespace Postback.Dominio
 {
     public class Categoria
     {
-        private string  Descricao { get; set; }
+        public string  Descricao { get; set; }
         public Color Cor { get; set; }
         public string CorHexadecimal { get { return ColorTranslator.ToHtml(Cor); } }
 
@@ -18,10 +18,15 @@ namespace Postback.Dominio
             Descricao = descricao;
         }
 
-
-        public static IEnumerable ObterCategorias(IEnumerable<PostIt> postIts)
+        public override bool Equals(object obj)
         {
-            return postIts.GroupBy(x => x.Categoria).Select(x => x.Key);
+            var other = (Categoria) obj;
+            return other.Descricao == Descricao;
+        }
+
+        public override int GetHashCode()
+        {
+            return Descricao.GetHashCode();
         }
     }
 }

@@ -20,20 +20,43 @@ namespace Postback.UI.WebApp.Controllers
 
         public ActionResult Exibir(int id)
         {
-            var quadro = quadroRepositorio.Obter(id);
+            List<PostIt> postItsDoQuadro = new List<PostIt>();
 
-            //var grupos = AgrupadorDePostIt.Agrupar(postItsDoEvento);
-            var grupos = AgrupadorDePostIt.PegaExemplo();
+            postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Bom"));
+            postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Melhorar"));
+            postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Aprendi"));
+
+            postItsDoQuadro[1].Assunto = new Tag(){Nome="Diferente"};
+
+            var grupos = AgrupadorDePostIt.Agrupar(postItsDoQuadro);
+            //var grupos = AgrupadorDePostIt.PegaExemplo();
 
             var exibirQuadroViewModel = new ExibirQuadroViewModel()
             {
-                Quadro = quadro,
+                Quadro = QuadroBuilder.UmQuadro().Criar(),
                 Grupos = grupos
             };
 
             return View(exibirQuadroViewModel);
         }
 	}
+
+    public class QuadroBuilder
+    {
+        public static QuadroBuilder UmQuadro()
+        {
+            return new QuadroBuilder();
+        }
+
+        public Quadro Criar()
+        {
+            return new Quadro()
+            {
+                Categorias = CategoriaBuilder.VariasCategorias(),
+                Descricao = "Hackathon"
+            };
+        }
+    }
 
     public class ExibirQuadroViewModel
     {

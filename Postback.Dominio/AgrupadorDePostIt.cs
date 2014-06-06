@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 
@@ -13,12 +14,12 @@ namespace Postback.Dominio
 
             foreach (var grupoDeCategoria in postIts.GroupBy(x => x.Categoria))
             {
-                var categoria = grupoDeCategoria.Key;
-                foreach (var grupoDeAssunto in postIts.Where(x => x.Categoria == categoria).GroupBy(x => x.Assunto))
+                var categoria = grupoDeCategoria.Key.Descricao;
+                foreach (var grupoDeAssunto in postIts.Where(x => x.Categoria.Descricao == categoria).GroupBy(x => x.Assunto))
                 {
-                    var assunto = grupoDeAssunto.Key;
+                    var assunto = grupoDeAssunto.Key.Nome;
 
-                    var grupo = new Grupo(postIts.Where(x => x.Assunto == assunto && x.Categoria == categoria));
+                    var grupo = new Grupo(postIts.Where(x => x.Assunto.Nome == assunto && x.Categoria.Descricao == categoria));
 
                     grupos.Add(grupo);
                 }
@@ -29,12 +30,13 @@ namespace Postback.Dominio
 
         public static IEnumerable<Grupo> PegaExemplo()
         {
-            return new List<Grupo>()
+            var grupos = new List<Grupo>()
             {
                 GrupoBuilder.UmGrupo().ComPostIts(PostItBuilder.VariosPostItsDaCategoria("Bom")).Criar(),
                 GrupoBuilder.UmGrupo().ComPostIts(PostItBuilder.VariosPostItsDaCategoria("Melhorar")).Criar(),
                 GrupoBuilder.UmGrupo().ComPostIts(PostItBuilder.VariosPostItsDaCategoria("Aprendi")).Criar(),
             };
+            return grupos;
         }
     }
 
@@ -42,7 +44,7 @@ namespace Postback.Dominio
     {
         private Tag _tag = TagBuilder.UmaTag().Criar();
         private Categoria _categoria;
-        private string _conteudo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet eleifend ante, non ultricies libero. Etiam arcu enim, auctor.";
+        private string _conteudo = Guid.NewGuid().ToString();
 
         public static IEnumerable<PostIt> VariosPostIts()
         {
@@ -92,6 +94,14 @@ namespace Postback.Dominio
         public Categoria Criar()
         {
             return new Categoria(descricao: _descricao, corEmHexadecimal:_cor);
+        }
+
+        public static IEnumerable<Categoria> VariasCategorias()
+        {
+            var categorias = new List<Categoria>();
+            var descricaoDasCategorias = "Bom,Melhorar,Aprendi".Split(',');
+
+            return descricaoDasCategorias.Select(x => CategoriaBuilder.UmaCategoria().ComDescricao(x).Criar());
         }
     }
 
