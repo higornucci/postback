@@ -5,7 +5,7 @@ namespace Postback.Dominio
 {
     public class Grupo
     {
-        private IEnumerable<PostIt> PostIts { get; set; }
+        public IEnumerable<PostIt> PostIts { get; set; }
 
         private Tag TagDoGrupo
         {
@@ -37,6 +37,11 @@ namespace Postback.Dominio
         public Grupo(IEnumerable<PostIt> postIts)
         {
             PostIts = postIts;
+        }
+
+        public override string ToString()
+        {
+            return Assunto;
         }
     }
 }
