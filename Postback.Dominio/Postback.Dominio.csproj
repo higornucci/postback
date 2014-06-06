@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="AgrupadorDePostIt.cs" />
     <Compile Include="Categoria.cs" />
-    <Compile Include="Evento.cs" />
     <Compile Include="Grupo.cs" />
     <Compile Include="PostIt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
