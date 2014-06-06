@@ -5,6 +5,12 @@ body {
   margin: 0;
   padding: 0;
   background: #f8f8f8;
+  height: 100%;
+}
+.master {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
 }
 .topo {
   border-top: solid 3px #fbdb00;
@@ -31,7 +37,7 @@ body {
   display: inline-block;
   list-style: none;
   width: 33%;
-  min-height: 700px;
+  min-height: 600px;
 }
 .agrupamento {
   margin: 0 0 30px 0;
@@ -86,6 +92,11 @@ h2 {
   padding: 10px 0;
 }
 .rodape {
+  height: 19px;
+  margin-top: -60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   box-shadow: 0 -2px 1px #f2f2f2;
   background: #fbfbfb;
   height: 75px;
