@@ -127,7 +127,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\postbackhackaton - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\postbackhackaton - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\postbackhackaton - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\postbackhackaton - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
