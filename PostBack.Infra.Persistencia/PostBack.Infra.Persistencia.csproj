@@ -54,6 +54,7 @@
     <Compile Include="Convencoes\PrimaryKeyConvention.cs" />
     <Compile Include="Convencoes\ServidorDePublicacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\RepositorioBaseDominio.cs" />
     <Compile Include="SessionFactory\ConfiguradorDeSessionFactory.cs" />
     <Compile Include="SessionFactory\Contexto.cs" />
   </ItemGroup>

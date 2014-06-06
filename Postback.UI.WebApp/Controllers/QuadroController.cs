@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
-using System.Web.Mvc;
-using Postback.Dominio;
+﻿using Postback.Dominio;
 using PostBack.Infra.Repositorios;
+using System.Web.Mvc;
 
 namespace Postback.UI.WebApp.Controllers
 {
     public class QuadroController : Controller
     {
+        private readonly IQuadroRepositorio _quadroRepositorio;
         public PostItRepositorio postItRepositorio = new PostItRepositorio();
+
+        public QuadroController(IQuadroRepositorio quadroRepositorio)
+        {
+            _quadroRepositorio = quadroRepositorio;
+        }
 
         public ActionResult Index()
         {
@@ -27,5 +28,5 @@ namespace Postback.UI.WebApp.Controllers
 
             return View(grupos);
         }
-	}
+    }
 }

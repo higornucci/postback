@@ -1,7 +1,9 @@
-﻿namespace PostBack.Infra.Repositorios
+﻿using Postback.Dominio;
+
+namespace PostBack.Infra.Repositorios
 {
-    public class QuadroRepositorio
+    public class QuadroRepositorio : RepositorioBase<Quadro>, IQuadroRepositorio
     {
-         
+
     }
 }
