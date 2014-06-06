@@ -1,16 +1,17 @@
 using NHibernate;
 using NHibernate.Linq;
+using Postback.Dominio._Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace PostBack.Infra.Persistencia.Repositorios
 {
-    public abstract class RepositorioBaseDominio<TEntidade> where TEntidade : class //Entidade<TEntidade>
+    public abstract class RepositorioBase<TEntidade> where TEntidade : Entidade<TEntidade>
     {
         protected ISession Sessao { get; private set; }
 
-        protected RepositorioBaseDominio(ISession sessao)
+        protected RepositorioBase(ISession sessao)
         {
             if (sessao == null) throw new ArgumentNullException("sessao");
             Sessao = sessao;

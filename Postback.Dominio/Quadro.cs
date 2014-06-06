@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Postback.Dominio._Base;
+using System.Collections.Generic;
 
 namespace Postback.Dominio
 {
-    public class Quadro
+    public class Quadro : Entidade<Quadro>
     {
-        private IEnumerable<Categoria> Categorias;
+        public IEnumerable<Categoria> Categorias;
         public string Descricao { get; set; }
     }
 }
