@@ -126,7 +126,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PostItController.cs" />
+    <Compile Include="Controllers\QuadroController.cs" />
     <Compile Include="Controllers\WebAppControllerFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,6 +176,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Quadro\Index.cshtml" />
+    <Content Include="Views\PostIt\Index.cshtml" />
+    <Content Include="Views\Evento\Index.cshtml" />
+    <Content Include="Views\Evento\Criar.cshtml" />
+    <Content Include="Views\PostIt\Criar.cshtml" />
+    <Content Include="Views\Quadro\Exibir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -186,9 +195,17 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Postback.Dominio\Postback.Dominio.csproj">
+      <Project>{2C266424-046F-4341-A3C4-3F580E78C8DA}</Project>
+      <Name>Postback.Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PostBack.Infra.Persistencia\PostBack.Infra.Persistencia.csproj">
       <Project>{10bac3f2-40e2-4a83-9792-66cfbb0a29d8}</Project>
       <Name>PostBack.Infra.Persistencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PostBack.Infra\PostBack.Infra.csproj">
+      <Project>{08E20533-0A89-4443-880A-EB89123D1CCB}</Project>
+      <Name>PostBack.Infra</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

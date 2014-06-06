@@ -20,7 +20,7 @@ namespace Postback.UI.WebApp
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ConfigurarOrm();
-            ConfigurarInjecaoDeDependencia();
+            //ConfigurarInjecaoDeDependencia();
         }
 
         private static void ConfigurarOrm()
