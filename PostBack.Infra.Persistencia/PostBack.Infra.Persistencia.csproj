@@ -33,20 +33,11 @@
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Iesi.Collections.3.3.1.4000\lib\Net35\Iesi.Collections.dll</HintPath>
-    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Convencoes\CustomForeignKeyConvention.cs" />
@@ -54,10 +45,14 @@
     <Compile Include="Convencoes\PrimaryKeyConvention.cs" />
     <Compile Include="Convencoes\ServidorDePublicacao.cs" />
     <Compile Include="Mapeamentos\CategoriaMap.cs" />
+    <Compile Include="Mapeamentos\PostItMap.cs" />
+    <Compile Include="Mapeamentos\QuadroMap.cs" />
+    <Compile Include="Mapeamentos\SugestaoDeTag.cs" />
+    <Compile Include="Mapeamentos\TagMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\QuadroRepositorio.cs" />
     <Compile Include="Repositorios\RepositorioBase.cs" />
-    <Compile Include="Repositorios\TagRepositorio.cs" />
+    <Compile Include="Repositorios\SugestaoDeTagRepositorio.cs" />
     <Compile Include="SessionFactory\ConfiguradorDeSessionFactory.cs" />
     <Compile Include="SessionFactory\Contexto.cs" />
   </ItemGroup>

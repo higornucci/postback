@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
 
 namespace Postback.Dominio
 {
@@ -15,11 +14,11 @@ namespace Postback.Dominio
             foreach (var grupoDeCategoria in postIts.GroupBy(x => x.Categoria))
             {
                 var categoria = grupoDeCategoria.Key.Descricao;
-                foreach (var grupoDeAssunto in postIts.Where(x => x.Categoria.Descricao == categoria).GroupBy(x => x.Assunto))
+                foreach (var grupoDeAssunto in postIts.Where(x => x.Categoria.Descricao == categoria).GroupBy(x => x.Tag))
                 {
                     var assunto = grupoDeAssunto.Key.Nome;
 
-                    var grupo = new Grupo(postIts.Where(x => x.Assunto.Nome == assunto && x.Categoria.Descricao == categoria));
+                    var grupo = new Grupo(postIts.Where(x => x.Tag.Nome == assunto && x.Categoria.Descricao == categoria));
 
                     grupos.Add(grupo);
                 }
@@ -66,12 +65,12 @@ namespace Postback.Dominio
 
         private PostIt Criar()
         {
-            return new PostIt() {Assunto = _tag, Categoria = _categoria, Conteudo = _conteudo};
+            return new PostIt() { Tag = _tag, Categoria = _categoria, Conteudo = _conteudo };
         }
 
         public static PostItBuilder UmPostIt()
         {
-            return new PostItBuilder();   
+            return new PostItBuilder();
         }
     }
 
@@ -93,7 +92,7 @@ namespace Postback.Dominio
 
         public Categoria Criar()
         {
-            return new Categoria(descricao: _descricao, corEmHexadecimal:_cor);
+            return new Categoria(descricao: _descricao, corEmHexadecimal: _cor);
         }
 
         public static IEnumerable<Categoria> VariasCategorias()
@@ -122,7 +121,7 @@ namespace Postback.Dominio
 
         public Tag Criar()
         {
-            return new Tag() {Nome = _nome};
+            return new Tag(_nome);
         }
     }
 
@@ -137,7 +136,7 @@ namespace Postback.Dominio
 
         public Grupo Criar()
         {
-            return new Grupo( _postIts);
+            return new Grupo(_postIts);
         }
 
         public GrupoBuilder ComPostIts(IEnumerable<PostIt> postIts)
