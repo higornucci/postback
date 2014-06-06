@@ -1,38 +1,57 @@
 ﻿@model Postback.Dominio.PostIt
 
-@{
-    ViewBag.Title = "title";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<!DOCTYPE html>
 
-<h2>title</h2>
-<div>
-    @Html.DropDownListFor(x => x.Categoria, ViewBag.Categorias as SelectList)
-    @Html.TextBoxFor(x => x.Conteudo)
-    @Html.TextBoxFor(x => x.Tag)
+<html>
+<head>
 
-        
-    <input type="button" id="enviar" value="enviar" name="enviar" />
-</div>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/lib/css/format.css" rel="stylesheet" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
 
-@section scripts {
-    
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
-    <script src="~/signalr/hubs"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
-    <script>
+</head>
+<body>
 
-        $(function() {
+    <h1>title</h1>
 
-            var hub = $.connection.postItHub;
+    <div class="master">
 
-            $.connection.hub.start().done(function() {
-                $('#enviar').click(function () {
-                    hub.server.enviarNovoPostIt({ "Texto": "Vai ficar o bicho" });
+        <div class="styled-select">
+            @Html.DropDownListFor(x => x.Categoria, ViewBag.Categorias as SelectList)
+        </div>
+
+        @Html.TextBoxFor(x => x.Conteudo)
+        @Html.TextBoxFor(x => x.Tag)
+
+        <input type="button" id="enviar" value="enviar" name="enviar" />
+
+    </div>
+
+    @section scripts {
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
+        <script src="~/signalr/hubs"></script>
+
+        <script>
+
+            $(function () {
+
+                var hub = $.connection.postItHub;
+
+                $.connection.hub.start().done(function () {
+                    $('#enviar').click(function () {
+                        hub.server.enviarNovoPostIt({ "Texto": "Vai ficar o bicho" });
+                    });
                 });
-            });
-        })
+            })
 
-    </script>
-}
+        </script>
+    }
+
+
+</body>
+</html>
