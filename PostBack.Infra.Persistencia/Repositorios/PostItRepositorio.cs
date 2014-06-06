@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Postback.Dominio;
 
-namespace PostBack.Infra.Repositorios
+namespace PostBack.Infra.Persistencia.Repositorios
 {
     public class PostItRepositorio: RepositorioBase<PostIt>
     {

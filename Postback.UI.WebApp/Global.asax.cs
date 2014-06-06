@@ -1,7 +1,6 @@
-﻿using Postback.UI.WebApp.Controllers;
+﻿using Postback.UI.WebApp.CompositionRoot;
 using PostBack.Infra.Persistencia.Convencoes;
 using PostBack.Infra.Persistencia.SessionFactory;
-using SimpleInjector;
 using System;
 using System.Web;
 using System.Web.Mvc;
@@ -20,18 +19,18 @@ namespace Postback.UI.WebApp
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ConfigurarOrm();
-            //ConfigurarInjecaoDeDependencia();
+            ConfigurarInjecaoDeDependencia();
         }
 
         private static void ConfigurarOrm()
         {
-            Contexto.SessionFactory = (new ConfiguradorDeSessionFactory()).CriarSessionFactory(ServidorDePublicacao.Producao);
+            Contexto.SessionFactory = (new ConfiguradorDeSessionFactory()).CriarSessionFactory(ServidorDePublicacao.Producao, exibirSql: false, criarBd: true);
         }
 
         private static void ConfigurarInjecaoDeDependencia()
         {
-            var container = new Container();
-            ControllerBuilder.Current.SetControllerFactory(new WebAppControllerFactory(container));
+            var container = SimpleInjectorComposer.Compor();
+            ControllerBuilder.Current.SetControllerFactory(new SimpleInjectorControllerFactory(container));
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

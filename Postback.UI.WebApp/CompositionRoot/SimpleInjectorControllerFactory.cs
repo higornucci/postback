@@ -3,13 +3,13 @@ using System;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Postback.UI.WebApp.Controllers
+namespace Postback.UI.WebApp.CompositionRoot
 {
-    public class WebAppControllerFactory : DefaultControllerFactory
+    public class SimpleInjectorControllerFactory : DefaultControllerFactory
     {
         private readonly Container _container;
 
-        public WebAppControllerFactory(Container container)
+        public SimpleInjectorControllerFactory(Container container)
         {
             _container = container;
         }

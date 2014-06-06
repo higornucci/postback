@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postback.UI.WebApp", "Postback.UI.WebApp\Postback.UI.WebApp.csproj", "{0D65500A-3903-4514-9785-650443D80614}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostBack.Infra.Persistencia", "PostBack.Infra.Persistencia\PostBack.Infra.Persistencia.csproj", "{10BAC3F2-40E2-4A83-9792-66CFBB0A29D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postback.Dominio", "Postback.Dominio\Postback.Dominio.csproj", "{2C266424-046F-4341-A3C4-3F580E78C8DA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostBack.Infra", "PostBack.Infra\PostBack.Infra.csproj", "{08E20533-0A89-4443-880A-EB89123D1CCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{2C266424-046F-4341-A3C4-3F580E78C8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C266424-046F-4341-A3C4-3F580E78C8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C266424-046F-4341-A3C4-3F580E78C8DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{08E20533-0A89-4443-880A-EB89123D1CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08E20533-0A89-4443-880A-EB89123D1CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08E20533-0A89-4443-880A-EB89123D1CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08E20533-0A89-4443-880A-EB89123D1CCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

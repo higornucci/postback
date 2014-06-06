@@ -11,7 +11,12 @@ namespace Postback.UI.WebApp.Controllers
 {
     public class QuadroController : Controller
     {
-        public QuadroRepositorio quadroRepositorio = new QuadroRepositorio();
+        private readonly IQuadroRepositorio _quadroRepositorio;
+
+        public QuadroController(IQuadroRepositorio quadroRepositorio)
+        {
+            _quadroRepositorio = quadroRepositorio;
+        }
 
         public ActionResult Index()
         {
