@@ -1,8 +1,18 @@
-﻿@model System.Collections.Generic.IEnumerable<Postback.Dominio.Grupo>
+﻿@using Postback.Dominio
+@model Postback.UI.WebApp.Controllers.ExibirQuadroViewModel
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>@Model.Quadro.Descricao</h2>
+
+<ul>
+    @foreach (var categoria in Model.Quadro.Categorias)
+    {
+        <li>
+            <h2></h2>
+        </li>
+    }
+</ul>

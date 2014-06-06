@@ -26,6 +26,14 @@ namespace Postback.Dominio
             }
         }
 
+        public Categoria Categoria
+        {
+            get
+            {
+                return PostIts.Any() ? PostIts.FirstOrDefault().Categoria : null;
+            }
+        }
+
         public Grupo(IEnumerable<PostIt> postIts)
         {
             PostIts = postIts;

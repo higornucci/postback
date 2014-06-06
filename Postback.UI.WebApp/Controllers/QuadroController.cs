@@ -11,7 +11,7 @@ namespace Postback.UI.WebApp.Controllers
 {
     public class QuadroController : Controller
     {
-        public PostItRepositorio postItRepositorio = new PostItRepositorio();
+        public QuadroRepositorio quadroRepositorio = new QuadroRepositorio();
 
         public ActionResult Index()
         {
@@ -20,12 +20,24 @@ namespace Postback.UI.WebApp.Controllers
 
         public ActionResult Exibir(int id)
         {
-            var postItsDoEvento = postItRepositorio.ObterPorEvento(id);
+            var quadro = quadroRepositorio.Obter(id);
 
             //var grupos = AgrupadorDePostIt.Agrupar(postItsDoEvento);
             var grupos = AgrupadorDePostIt.PegaExemplo();
 
-            return View(grupos);
+            var exibirQuadroViewModel = new ExibirQuadroViewModel()
+            {
+                Quadro = quadro,
+                Grupos = grupos
+            };
+
+            return View(exibirQuadroViewModel);
         }
 	}
+
+    public class ExibirQuadroViewModel
+    {
+        public Quadro Quadro { get; set; }
+        public IEnumerable<Grupo> Grupos { get; set; }
+    }
 }
