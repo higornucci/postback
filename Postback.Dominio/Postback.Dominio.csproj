@@ -41,6 +41,7 @@
     <Compile Include="ICategoriaRepositorio.cs" />
     <Compile Include="IPostItRepositorio.cs" />
     <Compile Include="IQuadroRepositorio.cs" />
+    <Compile Include="ISugestaoDeTagRepositorio.cs" />
     <Compile Include="PostIt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quadro.cs" />
