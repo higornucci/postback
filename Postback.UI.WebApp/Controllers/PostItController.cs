@@ -6,10 +6,12 @@ namespace Postback.UI.WebApp.Controllers
     public class PostItController : Controller
     {
         private readonly IQuadroRepositorio _quadroRepositorio;
+        private readonly IPostItRepositorio _postItRepositorio;
 
-        public PostItController(IQuadroRepositorio quadroRepositorio)
+        public PostItController(IQuadroRepositorio quadroRepositorio, IPostItRepositorio postItRepositorio)
         {
             _quadroRepositorio = quadroRepositorio;
+            _postItRepositorio = postItRepositorio;
         }
 
         //
@@ -20,6 +22,12 @@ namespace Postback.UI.WebApp.Controllers
         }
 
         public ActionResult Criar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Criar(PostIt postIt)
         {
             return View();
         }

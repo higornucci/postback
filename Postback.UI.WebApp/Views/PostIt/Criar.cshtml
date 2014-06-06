@@ -1,8 +1,9 @@
-﻿@model dynamic
+﻿@model Postback.Dominio.PostIt
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+@Html.DropDownListFor(x => x.Categoria, ViewBag.Categorias as SelectList)
+@Html.TextBoxFor(x => x.Conteudo)
