@@ -1,4 +1,5 @@
-﻿@using Postback.Dominio
+﻿@using System.Web.Razor.Parser.SyntaxTree
+@using Postback.Dominio
 @model Postback.UI.WebApp.Controllers.ExibirQuadroViewModel
 
 @{
@@ -8,18 +9,18 @@
 
 <h1>@Model.Quadro.Descricao</h1>
 
-<ul>
+<ul class="template centralizado">
     @foreach (var categoria in Model.Grupos.GroupBy(x => x.Categoria))
     {
-        <li>
+        <li class="categoria">
             <h2>@categoria.Key.Descricao</h2>
 
             @foreach (var grupo in Model.Grupos.Where(x => x.Categoria.Descricao == categoria.Key.Descricao))
             {
-                <ul>
+                <ul class="agrupamento grupo">
                     @foreach(var postIt in grupo.PostIts)
                     {
-                        <li class="postIt">
+                        <li class="postIt" style="border-left: solid 5px @categoria.Key.CorHexadecimal;">
                             <p class="conteudo">@postIt.Conteudo</p>
                             <p class="hashtag">@postIt.Assunto</p>
                         </li>

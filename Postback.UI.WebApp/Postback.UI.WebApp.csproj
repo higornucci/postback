@@ -145,6 +145,7 @@
     <Compile Include="CompositionRoot\SimpleInjectorControllerFactory.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IPostItRepositorio.cs" />
     <Compile Include="Controllers\PostItController.cs" />
     <Compile Include="Controllers\QuadroController.cs" />
     <Compile Include="Global.asax.cs">
@@ -158,7 +159,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\logo-postback.jpg" />
-    <Content Include="Content\lib\css\format.css" />
+    <Content Include="Content\lib\css\format.css">
+      <DependentUpon>format.less</DependentUpon>
+    </Content>
     <Content Include="Content\quadro.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -167,6 +170,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\lib\css\format.less" />
+    <Content Include="Content\lib\css\format.css.map">
+      <DependentUpon>format.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\postbackhackaton - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\postbackhackaton - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
