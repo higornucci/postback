@@ -1,19 +1,24 @@
-﻿using Postback.Dominio._Base;
-
-namespace Postback.Dominio
+﻿namespace Postback.Dominio
 {
-    public class Tag : Entidade<Tag>
+    public class Tag
     {
-        public string Nome { get; set; }
+        public string Nome { get; private set; }
+
+        private Tag() { }
+
+        public Tag(string nome)
+        {
+            Nome = nome;
+        }
 
         public override string ToString()
         {
-            return this.Nome;
+            return Nome;
         }
 
         public override bool Equals(object obj)
         {
-            return ((Tag) obj).Nome == this.Nome;
+            return ((Tag)obj).Nome == this.Nome;
         }
 
         public override int GetHashCode()

@@ -12,7 +12,7 @@ namespace Postback.UI.WebApp.CompositionRoot
         public static Container Compor()
         {
             Container.Register(() => Contexto.Sessao);
-            RegistrarAssemblyDe<TagRepositorio>();
+            RegistrarAssemblyDe<QuadroRepositorio>();
             return Container;
         }
 

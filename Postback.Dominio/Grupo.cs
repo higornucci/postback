@@ -11,8 +11,8 @@ namespace Postback.Dominio
         {
             get
             {
-                return PostIts.Any() ? PostIts.FirstOrDefault().Assunto :
-                    new Tag() { Nome = "Sem assunto" };
+                return PostIts.Any() ? PostIts.FirstOrDefault().Tag :
+                    new Tag("Sem assunto");
             }
         }
 

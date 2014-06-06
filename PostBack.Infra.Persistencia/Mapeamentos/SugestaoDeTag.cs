@@ -3,12 +3,12 @@ using Postback.Dominio;
 
 namespace PostBack.Infra.Persistencia.Mapeamentos
 {
-    public class CategoriaMap : ClassMap<Categoria>
+    public class SugestaoDeTagMap : ClassMap<SugestaoDeTag>
     {
-        public CategoriaMap()
+        public SugestaoDeTagMap()
         {
             Id(x => x.Id);
-            Map(x => x.Descricao);
+            Component(x => x.Tag).ColumnPrefix("Tag_");
         }
     }
 }
