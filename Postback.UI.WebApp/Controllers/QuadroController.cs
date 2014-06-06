@@ -57,7 +57,7 @@ namespace Postback.UI.WebApp.Controllers
             return new Quadro()
             {
                 Categorias = CategoriaBuilder.VariasCategorias(),
-                Descricao = "Hackathon"
+                Descricao = "Hackathon 2.0"
             };
         }
     }
