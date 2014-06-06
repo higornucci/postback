@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{10BAC3F2-40E2-4A83-9792-66CFBB0A29D8}</ProjectGuid>
+    <ProjectGuid>{2C266424-046F-4341-A3C4-3F580E78C8DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PostBack.Infra.Persistencia</RootNamespace>
-    <AssemblyName>PostBack.Infra.Persistencia</AssemblyName>
+    <RootNamespace>Postback.Dominio</RootNamespace>
+    <AssemblyName>Postback.Dominio</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,18 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentNHibernate">
-      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Iesi.Collections.3.3.1.4000\lib\Net35\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate">
-      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,22 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Convencoes\CustomForeignKeyConvention.cs" />
-    <Compile Include="Convencoes\EnumConvention.cs" />
-    <Compile Include="Convencoes\PrimaryKeyConvention.cs" />
-    <Compile Include="Convencoes\ServidorDePublicacao.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="Evento.cs" />
+    <Compile Include="PostIt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SessionFactory\ConfiguradorDeSessionFactory.cs" />
-    <Compile Include="SessionFactory\Contexto.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Postback.Dominio\Postback.Dominio.csproj">
-      <Project>{2c266424-046f-4341-a3c4-3f580e78c8da}</Project>
-      <Name>Postback.Dominio</Name>
-    </ProjectReference>
+    <Compile Include="Quadro.cs" />
+    <Compile Include="Tag.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
