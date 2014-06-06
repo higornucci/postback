@@ -50,10 +50,10 @@ namespace Postback.Dominio
             return Enumerable.Range(0, 3).Select(source => PostItBuilder.UmPostIt().Criar()).ToList();
         }
 
-        public static IEnumerable<PostIt> VariosPostItsDaCategoria(string descricaoDaCategoria)
+        public static IEnumerable<PostIt> VariosPostItsDaCategoria(string descricaoDaCategoria, string corDaCategoria="#ff0000")
         {
             return Enumerable.Range(0, 3).Select(source => PostItBuilder.UmPostIt()
-                .DaCategoria(CategoriaBuilder.UmaCategoria().ComDescricao(descricaoDaCategoria).Criar())
+                .DaCategoria(CategoriaBuilder.UmaCategoria().ComCor(corDaCategoria).ComDescricao(descricaoDaCategoria).Criar())
                 .Criar()).ToList();
         }
 
@@ -101,6 +101,12 @@ namespace Postback.Dominio
             var descricaoDasCategorias = "Bom,Melhorar,Aprendi".Split(',');
 
             return descricaoDasCategorias.Select(x => CategoriaBuilder.UmaCategoria().ComDescricao(x).Criar());
+        }
+
+        public CategoriaBuilder ComCor(string corDaCategoria)
+        {
+            _cor = corDaCategoria;
+            return this;
         }
     }
 
