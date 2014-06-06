@@ -2,7 +2,34 @@
 
 @{
     ViewBag.Title = "title";
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>title</h2>
+<h2>Quadro</h2>
+
+<div id="container">   
+    <ul id="discussion"></ul>
+</div>
+
+@section scripts {
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
+    <script src="~/signalr/hubs"></script>
+
+    <script>
+
+        $(function() {
+
+            $.connection.hub.start();
+
+            var hub = $.connection.postItHub;
+
+            hub.client.novoPostIt = function (texto) {
+                // Add the message to the page.
+                $('#discussion').append('<li><strong>' + texto + '</strong></li>');
+            };      
+        })
+
+    </script>
+}

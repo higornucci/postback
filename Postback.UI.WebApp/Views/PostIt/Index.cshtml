@@ -2,7 +2,32 @@
 
 @{
     ViewBag.Title = "title";
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>title</h2>
+<div>        
+    <input type="button" id="enviar" value="enviar" name="enviar" />
+</div>
+
+@section scripts {
+    
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
+    <script src="~/signalr/hubs"></script>
+
+    <script>
+
+        $(function() {
+
+            var hub = $.connection.postItHub;
+
+            $.connection.hub.start().done(function() {
+                $('#enviar').click(function () {
+                    hub.server.enviarNovoPostIt({ "Texto": "Vai ficar o bicho" });
+                });
+            });
+        })
+
+    </script>
+}
