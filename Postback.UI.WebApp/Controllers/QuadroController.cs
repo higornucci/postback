@@ -13,8 +13,9 @@ namespace Postback.UI.WebApp.Controllers
             _quadroRepositorio = quadroRepositorio;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
+            
             return View();
         }
 
@@ -22,9 +23,9 @@ namespace Postback.UI.WebApp.Controllers
         {
             List<PostIt> postItsDoQuadro = new List<PostIt>();
 
-            postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Bom"));
-            postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Melhorar"));
-            postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Aprendi"));
+            postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Bom", "#53da3f"));
+            postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Melhorar", "#5bb4e5"));
+            postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Aprendi", "#fee000"));
 
             postItsDoQuadro[1].Tag = new Tag("Diferente");
 
