@@ -40,6 +40,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repositorios\CategoriaRepositorio.cs" />
     <Compile Include="Convencoes\CustomForeignKeyConvention.cs" />
     <Compile Include="Convencoes\EnumConvention.cs" />
     <Compile Include="Convencoes\PrimaryKeyConvention.cs" />

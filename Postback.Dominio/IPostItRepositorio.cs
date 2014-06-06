@@ -1,4 +1,4 @@
-﻿namespace Postback.UI.WebApp.Controllers
+﻿namespace Postback.Dominio
 {
     public interface IPostItRepositorio
     {

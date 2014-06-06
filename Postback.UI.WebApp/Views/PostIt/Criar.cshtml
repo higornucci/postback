@@ -2,8 +2,6 @@
 
 @{
     ViewBag.Title = "title";
-    Layout = "_Layout";
-}
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
-@Html.DropDownListFor(x => x.Categoria, ViewBag.Categorias as SelectList)
-@Html.TextBoxFor(x => x.Conteudo)
+}

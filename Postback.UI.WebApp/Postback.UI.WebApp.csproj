@@ -146,7 +146,6 @@
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ICategoriaRepositorio.cs" />
-    <Compile Include="Controllers\IPostItRepositorio.cs" />
     <Compile Include="Controllers\PostItController.cs" />
     <Compile Include="Controllers\QuadroController.cs" />
     <Compile Include="Global.asax.cs">

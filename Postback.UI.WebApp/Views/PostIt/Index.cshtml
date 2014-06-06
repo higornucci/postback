@@ -1,4 +1,4 @@
-﻿@model dynamic
+﻿@model Postback.Dominio.PostIt
 
 @{
     ViewBag.Title = "title";
@@ -6,7 +6,12 @@
 }
 
 <h2>title</h2>
-<div>        
+<div>
+    @Html.DropDownListFor(x => x.Categoria, ViewBag.Categorias as SelectList)
+    @Html.TextBoxFor(x => x.Conteudo)
+    @Html.TextBoxFor(x => x.Tag)
+
+        
     <input type="button" id="enviar" value="enviar" name="enviar" />
 </div>
 
