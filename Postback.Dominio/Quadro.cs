@@ -5,7 +5,7 @@ namespace Postback.Dominio
 {
     public class Quadro : Entidade<Quadro>
     {
-        public IEnumerable<Categoria> Categorias;
-        public string Descricao { get; set; }
+        public virtual string Descricao { get; set; }
+        public virtual IEnumerable<Categoria> Categorias { get; set; }
     }
 }

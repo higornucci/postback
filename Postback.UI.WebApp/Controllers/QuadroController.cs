@@ -1,10 +1,6 @@
-﻿using System;
+﻿using Postback.Dominio;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
 using System.Web.Mvc;
-using Postback.Dominio;
 
 namespace Postback.UI.WebApp.Controllers
 {
@@ -30,7 +26,7 @@ namespace Postback.UI.WebApp.Controllers
             postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Melhorar"));
             postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Aprendi"));
 
-            postItsDoQuadro[1].Assunto = new Tag(){Nome="Diferente"};
+            postItsDoQuadro[1].Tag = new Tag("Diferente");
 
             var grupos = AgrupadorDePostIt.Agrupar(postItsDoQuadro);
             //var grupos = AgrupadorDePostIt.PegaExemplo();
@@ -43,7 +39,7 @@ namespace Postback.UI.WebApp.Controllers
 
             return View(exibirQuadroViewModel);
         }
-	}
+    }
 
     public class QuadroBuilder
     {
@@ -57,7 +53,7 @@ namespace Postback.UI.WebApp.Controllers
             return new Quadro()
             {
                 Categorias = CategoriaBuilder.VariasCategorias(),
-                Descricao = "Hackathon"
+                Descricao = "Hackathon 2.0"
             };
         }
     }

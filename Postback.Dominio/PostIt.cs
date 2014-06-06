@@ -1,10 +1,12 @@
-﻿namespace Postback.Dominio
+﻿using Postback.Dominio._Base;
+
+namespace Postback.Dominio
 {
-    public class PostIt
+    public class PostIt : Entidade<PostIt>
     {
-        public string Conteudo { get; set; }
-        public Tag Assunto { get; set; }
-        public Categoria Categoria { get; set; }
-        public Quadro Quadro { get; set; }
+        public virtual string Conteudo { get; set; }
+        public virtual Tag Tag { get; set; }
+        public virtual Categoria Categoria { get; set; }
+        public virtual Quadro Quadro { get; set; }
     }
 }
