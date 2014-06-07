@@ -6,7 +6,7 @@ namespace Postback.UI.WebApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", Request.Browser.IsMobileDevice ? "PostIt" : "Quadro");
         }
     }
 }
