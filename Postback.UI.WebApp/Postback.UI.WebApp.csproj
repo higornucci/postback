@@ -147,6 +147,7 @@
     <Compile Include="Controllers\PostItController.cs" />
     <Compile Include="Controllers\QuadroController.cs" />
     <Compile Include="Extensions\ExtensoesDeIEnumerable.cs" />
+    <Compile Include="Extensions\ExtensoesDeString.cs" />
     <Compile Include="Extensions\ItemDefault.cs" />
     <Compile Include="Filters\UnitOfWorkAttribute.cs" />
     <Compile Include="Controllers\SugestaoDeTagController.cs" />
@@ -273,7 +274,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
