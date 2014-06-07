@@ -1,14 +1,11 @@
-﻿@model Postback.Dominio.PostIt
-
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html>
 <head>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Content/lib/css/format.css" rel="stylesheet" />
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -23,52 +20,59 @@
     </div>
     <h1>title</h1>
 
-    <div class="conteudoMobile">
+    <div class="master">
+
         <div class="styled-select">
-            @Html.DropDownListFor(x => x.Categoria, ViewBag.Categorias as SelectList)
+             @Html.DropDownList("CategoriaId", ViewBag.Categorias as SelectList)
         </div>
 
-        <input id="Conteudo" name="Conteudo" type="text" maxlength="90" />
-        @Html.TextBoxFor(x => x.Tag)
+    @Html.TextBoxFor(x => x.Conteudo)
+    @Html.TextBoxFor(x => x.Tag)
 
-        <input type="button" id="enviar" value="enviar" name="enviar" />
+    <input type="button" id="enviar" value="enviar" name="enviar" />
 
-        
-       
-
-
-    </div>
+</div>
     <div class="rodape">
         <span class="conteudo">#postback - hackathon 2.0</span>
     </div>
-    @section scripts {
+@section scripts {
     
     <link href="@Url.Content("~/Content/themes/base/minified/jquery-ui.min.css")" rel="stylesheet" />
-        <script src="~/Scripts/jquery-1.10.2.js"></script>
-        <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
     <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
-        <script src="~/signalr/hubs"></script>
+    <script src="~/signalr/hubs"></script>
 
-        <script>
+    <script>
 
         $(function() {
-            $("#Tag").autocomplete({
+
+            $("#TagNome").autocomplete({
                 source: "/PostIt/SugerirTags",
                 minLength: 2,
             });
 
-                var hub = $.connection.postItHub;
+            var hub = $.connection.postItHub;
 
-                $.connection.hub.start().done(function () {
-                    $('#enviar').click(function () {
-                        hub.server.enviarNovoPostIt({ "Texto": "Vai ficar o bicho" });
+            $.connection.hub.start().done(function() {
+
+                $("#enviar").click(function() {
+
+                    var frm = $("#frmPostIt");
+                    var dados = frm.serialize();
+                    $.post("@Url.Action("Post", "PostIt")", dados).success(function() {
+
+                        frm[0].reset();                        
+                    hub.server.enviarNovoPostIt({ "Texto": "Vai ficar o bicho" });
+                        // mensagem de sucesso
                     });
+
                 });
-            })
+                });
+            });
 
-        </script>
-    }
-
+    </script>
+}
 
 </body>
 </html>

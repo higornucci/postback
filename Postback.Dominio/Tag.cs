@@ -1,4 +1,6 @@
-﻿namespace Postback.Dominio
+﻿using Postback.Dominio.Helpers;
+
+namespace Postback.Dominio
 {
     public class Tag
     {
@@ -18,12 +20,17 @@
 
         public override bool Equals(object obj)
         {
-            return ((Tag)obj).Nome == this.Nome;
+            return ((Tag)obj).Nome == Nome;
         }
 
         public override int GetHashCode()
         {
-            return this.Nome.GetHashCode();
+            return Nome.GetHashCode();
+        }
+
+        public string ToHashTag()
+        {
+            return Nome.ToHashTag();
         }
     }
 }

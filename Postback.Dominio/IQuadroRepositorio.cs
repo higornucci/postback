@@ -2,5 +2,8 @@
 
 namespace Postback.Dominio
 {
-    public interface IQuadroRepositorio : IRepositorioBase<Quadro> { }
+    public interface IQuadroRepositorio : IRepositorioBase<Quadro>
+    {
+        Quadro ObterAtivo();
+    }
 }

@@ -1,13 +1,10 @@
-﻿@using System.Web.Razor.Parser.SyntaxTree
-@using Postback.Dominio
-@model Postback.UI.WebApp.Controllers.ExibirQuadroViewModel
-
+﻿@model Postback.UI.WebApp.ViewModels.QuadroAtivoVm
 @{
     ViewBag.Title = "title";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@Model.Quadro.Descricao</h1>
+<h1>@Model.QuadroDescricao</h1>
 
 <ul class="template centralizado">
     @foreach (var categoria in Model.Grupos.GroupBy(x => x.Categoria))
@@ -22,7 +19,7 @@
                     {
                         <li class="postIt" style="border-left: solid 5px @categoria.Key.CorHexadecimal;">
                             <p class="conteudo">@postIt.Conteudo</p>
-                            <p class="hashtag">#@postIt.Tag</p>
+                            <p class="hashtag">#@postIt.Tag.ToHashTag()</p>
                         </li>
                     }
                 </ul>

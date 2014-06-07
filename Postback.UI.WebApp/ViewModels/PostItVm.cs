@@ -2,9 +2,8 @@
 {
     public class PostItVm
     {
+        public int CategoriaId { get; set; }
         public string Conteudo { get; set; }
         public string TagNome { get; set; }
-        public int CategoriaId { get; set; }
-        public int QuadroId { get; set; }
     }
 }

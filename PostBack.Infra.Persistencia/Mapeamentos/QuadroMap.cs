@@ -9,6 +9,7 @@ namespace PostBack.Infra.Persistencia.Mapeamentos
         {
             Id(x => x.Id);
             Map(x => x.Descricao).Not.Nullable();
+            Map(x => x.Ativo).Not.Nullable();
             HasManyToMany(x => x.Categorias).Cascade.AllDeleteOrphan();
         }
     }

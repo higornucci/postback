@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace Postback.UI.WebApp.Controllers
@@ -19,5 +16,5 @@ namespace Postback.UI.WebApp.Controllers
 
             return Json(lista, JsonRequestBehavior.AllowGet);
         }
-	}
+    }
 }

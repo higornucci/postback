@@ -9,6 +9,7 @@ namespace PostBack.Infra.Persistencia.Mapeamentos
         {
             Id(x => x.Id);
             Map(x => x.Descricao);
+            Map(x => x.CorHexadecimal);
         }
     }
 }
