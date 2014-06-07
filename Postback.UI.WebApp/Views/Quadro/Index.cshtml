@@ -44,6 +44,8 @@
 
             hub.client.novoPostIt = function (texto) {
                 // Add the message to the page.
+
+                alert(texto);
                 $('#discussion').append('<li><strong>' + texto + '</strong></li>');
             };
         })

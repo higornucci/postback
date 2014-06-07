@@ -56,20 +56,22 @@
 
             $.connection.hub.start().done(function() {
 
+
                 $("#enviar").click(function() {
 
                     var frm = $("#frmPostIt");
                     var dados = frm.serialize();
                     $.post("@Url.Action("Post", "PostIt")", dados).success(function() {
 
-                        frm[0].reset();                        
-                    hub.server.enviarNovoPostIt({ "Texto": "Vai ficar o bicho" });
+                        frm[0].reset();
+                        hub.server.enviarNovoPostIt({ "Texto" : "ABACAXI"});
                         // mensagem de sucesso
                     });
 
                 });
-                });
+
             });
+        });
 
     </script>
 }
