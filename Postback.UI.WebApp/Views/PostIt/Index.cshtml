@@ -27,7 +27,7 @@
                     </select>
                 </div>
 
-                <input id="Conteudo" type="text" maxlength="120" placeholder=" Digite o conteudo" name="Conteudo">
+                <textarea id="Conteudo" maxlength="120" placeholder=" Digite o conteudo" name="Conteudo"></textarea>
                 <input id="TagNome" type="text" value="" placeholder="Informe uma hashtag" name="TagNome">
 
                 <input type="button" id="enviar" value="enviar" name="enviar" />
@@ -76,7 +76,7 @@
             }); // $
 
             function esconder() {
-                var esconde = document.getElementById('MensagemSucesso').style.display = 'none';
+                document.getElementById('MensagemSucesso').style.display = 'none';
             }
         </script>
     }
