@@ -14,7 +14,7 @@
         <h1>HACKATON 2.0</h1>
 
         <div style="display: none;" id="MensagemSucesso" onclick="esconder()"></div>
-    <div style="display: none;" id="MensagemErro" onclick="esconder()"></div>
+        <div style="display: none;" id="MensagemErro" onclick="esconder()"></div>
 
         <div class="conteudoMobile">
             <form id="frmPostIt" action="@Url.Action("Post", "PostIt")" method="POST">
@@ -62,27 +62,27 @@
 
                         var frm = $("#frmPostIt");
                         var dados = frm.serialize();
-                    var erros = [];
+                        var erros = [];
 
-                    if ($("#Conteudo").val() == "")
-                        erros.push("O conteúdo é obrigatório");
-                    if ($("#TagNome").val() == "")
-                        erros.push("A tag é obrigatória");
-                    if ($("#CategoriaId").val() == "")
-                        erros.push("a categoria é obrigatória");
+                        if ($("#Conteudo").val() == "")
+                            erros.push("O conteúdo é obrigatório");
+                        if ($("#TagNome").val() == "")
+                            erros.push("A tag é obrigatória");
+                        if ($("#CategoriaId").val() == "")
+                            erros.push("a categoria é obrigatória");
 
 
-                    if (erros.length == 0) {
-                        $.post("@Url.Action("Post", "PostIt")", dados, function() {
+                        if (erros.length == 0) {
+                            $.post("@Url.Action("Post", "PostIt")", dados, function () {
 
-                            hub.server.enviarNovoPostIt($("#Conteudo").val(), $("#TagNome").val(), $("#CategoriaId").val(), $("#CategoriaId option:selected").data("categoriacor"));
-                            frm[0].reset();
-                            $("#MensagemSucesso").show().html("PostIt colado!");
+                                hub.server.enviarNovoPostIt($("#Conteudo").val(), $("#TagNome").val(), $("#CategoriaId").val(), $("#CategoriaId option:selected").data("categoriacor"));
+                                frm[0].reset();
+                                $("#MensagemSucesso").show().html("PostIt colado!");
 
-                        }); // post
-                    } else {
-                        $("#MensagemErro").html(erros.join("\n"));
-                    }
+                            }); // post
+                        } else {
+                            $("#MensagemErro").html(erros.join("\n"));
+                        }
 
 
                     }); // enviar
