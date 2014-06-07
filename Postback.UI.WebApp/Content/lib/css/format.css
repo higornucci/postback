@@ -40,6 +40,14 @@
     display: none;
   }
 }
+#MensagemSucesso {
+  background-color: #8BDA80;
+  padding: 10PX;
+  margin: 10px;
+  border-radius: 5px;
+  font-style: italic;
+  cursor: pointer;
+}
 html,
 body {
   font-family: arial;
