@@ -5,7 +5,7 @@ INSERT INTO Categoria(descricao) VALUES('BOM')
 INSERT INTO Categoria(descricao) VALUES('MELHORAR')
 INSERT INTO Categoria(descricao) VALUES('APRENDI')
 
-INSERT INTO Quadro(descricao) VALUES('HACKATON 2.0')
+INSERT INTO Quadro(descricao, ativo) VALUES('HACKATON 2.0', 1)
 
 DECLARE @idQuadro INT
 SET @idQuadro = SCOPE_IDENTITY()

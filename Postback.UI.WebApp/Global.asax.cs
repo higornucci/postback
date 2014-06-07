@@ -24,7 +24,7 @@ namespace Postback.UI.WebApp
 
         private static void ConfigurarOrm()
         {
-            Contexto.SessionFactory = (new ConfiguradorDeSessionFactory()).CriarSessionFactory(ServidorDePublicacao.Producao, false, true);
+            Contexto.SessionFactory = (new ConfiguradorDeSessionFactory()).CriarSessionFactory(ServidorDePublicacao.Producao);
         }
 
         private static void ConfigurarInjecaoDeDependencia()

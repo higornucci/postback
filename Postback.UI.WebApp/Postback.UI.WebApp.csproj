@@ -146,6 +146,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostItController.cs" />
     <Compile Include="Controllers\QuadroController.cs" />
+    <Compile Include="Extensions\ExtensoesDeIEnumerable.cs" />
+    <Compile Include="Extensions\ItemDefault.cs" />
     <Compile Include="Filters\UnitOfWorkAttribute.cs" />
     <Compile Include="Controllers\SugestaoDeTagController.cs" />
     <Compile Include="Global.asax.cs">
@@ -260,8 +262,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\PostIt\Index.cshtml" />
