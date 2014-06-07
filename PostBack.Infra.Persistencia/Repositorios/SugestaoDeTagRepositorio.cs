@@ -16,7 +16,7 @@ namespace PostBack.Infra.Persistencia.Repositorios
 
         public SugestaoDeTag ObterPorTag(Tag tag)
         {
-            return All().FirstOrDefault(x => x.Tag.Equals(tag));
+            return All().FirstOrDefault(x => x.Tag == tag);
         }
     }
 }
