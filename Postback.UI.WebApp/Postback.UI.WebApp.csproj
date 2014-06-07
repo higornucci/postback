@@ -156,6 +156,7 @@
     <Compile Include="PostItHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CategoriaVm.cs" />
     <Compile Include="ViewModels\PostItVm.cs" />
     <Compile Include="ViewModels\QuadroAtivoVm.cs" />
   </ItemGroup>
