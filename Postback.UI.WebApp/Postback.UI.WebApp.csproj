@@ -161,6 +161,7 @@
     <Compile Include="ViewModels\QuadroAtivoVm.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\background.jpg" />
     <Content Include="Content\img\logo-postback.jpg" />
     <Content Include="Content\img\new_arrow.png" />
     <Content Include="Content\lib\css\format.css">
@@ -271,7 +272,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

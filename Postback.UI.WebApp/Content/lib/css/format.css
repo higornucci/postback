@@ -1,10 +1,9 @@
-﻿* {
-  font-family: arial;
-}
+﻿html,
 body {
+  font-family: arial;
   margin: 0;
   padding: 0;
-  background: #f8f8f8;
+  background: #ebebeb;
   height: 100%;
 }
 .master {
@@ -13,37 +12,53 @@ body {
   min-height: 100%;
 }
 .topo {
-  border-top: solid 3px #fbdb00;
+  border-top: solid 4px #fbdb00;
   width: 100%;
   height: 100px;
   background: #fbfbfb;
-  box-shadow: 0 2px 1px #f2f2f2;
+  box-shadow: 0 2px 1px #dedede;
 }
 .topo img {
   margin-top: 4px;
   width: auto;
   height: 95px;
 }
+.topoMobile {
+  border-top: solid 4px #fbdb00;
+  width: 100%;
+  height: 75px;
+  background: #fbfbfb;
+  box-shadow: 0 2px 1px #f2f2f2;
+  text-align: center;
+  margin: 0 0 20px 0;
+  box-shadow: 0 2px 1px #dedede;
+}
+.topoMobile img {
+  margin-top: 4px;
+  width: auto;
+  height: 65px;
+}
+.conteudoMobile {
+  width: 340px;
+  margin: 0 auto;
+}
 .centralizado {
   max-width: 1024px;
   margin: 0 auto;
 }
 .styled-select select {
-  background: url(../../img/new_arrow.png) no-repeat 335px #ffffff;
-  width: 368px;
-  padding: 5px;
-  font-size: 16px;
-  line-height: 1;
-  border: 0;
+  border: 0 none;
   border-radius: 5px;
+  font-size: 16px;
   height: 45px;
-  -webkit-appearance: none;
+  padding: 13px;
+  width: 338px;
 }
 input[type="text"] {
   margin: 10px 0;
   display: block;
   background: #fff;
-  width: 360px;
+  width: 330px;
   padding: 5px;
   font-size: 16px;
   line-height: 1;
@@ -52,17 +67,22 @@ input[type="text"] {
   height: 35px;
   -webkit-appearance: none;
 }
+input[type="text"]#Conteudo {
+  height: 200px;
+}
 input[type="button"] {
   background: #fbdb00;
   width: 300px;
-  padding: 10px;
+  padding: 15px 10px;
   border: 0;
   color: #000;
   font-size: 20px;
+  margin: 0 0 0 20px;
+  cursor: pointer;
 }
 .template {
-  padding: 0;
-  margin: 15px 0;
+  padding: 0 0 35px 0;
+  margin: 0;
   width: 100%;
 }
 .template .categoria {
@@ -72,6 +92,7 @@ input[type="button"] {
   min-height: 600px;
 }
 .agrupamento {
+  position: relative;
   margin: 0 0 30px 0;
   padding: 0;
 }
@@ -86,7 +107,7 @@ input[type="button"] {
 }
 .agrupamento .postIt:hover {
   transition: all 250ms ease-in-out 10ms;
-  background-color: #fafafa;
+  background-color: #ffffe8;
   cursor: default;
 }
 .agrupamento .postIt p {
@@ -101,6 +122,7 @@ input[type="button"] {
 }
 .agrupamento .postIt p.conteudo {
   margin-bottom: 0;
+  text-transform: lowercase;
 }
 .agrupamento .postIt p.hashtag {
   font-size: 15px;
@@ -120,17 +142,17 @@ h2 {
   text-align: center;
   margin: 0 0 15px 0;
   font-weight: lighter;
-  background-color: #e7e7e7;
+  background-color: #ccc;
   padding: 10px 0;
 }
 .rodape {
-  height: 19px;
   margin-top: -60px;
+  padding: 20px 5%;
   position: absolute;
   bottom: 0;
-  width: 100%;
-  box-shadow: 0 -2px 1px #f2f2f2;
+  width: 90%;
+  font-size: 14px;
+  box-shadow: 0 -2px 1px #dedede;
   background: #fbfbfb;
-  height: 75px;
 }
 /*# sourceMappingURL=format.css.map */
