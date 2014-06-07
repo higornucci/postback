@@ -1,6 +1,6 @@
-﻿namespace Postback.Dominio
+﻿using Postback.Dominio._Base;
+
+namespace Postback.Dominio
 {
-    public interface IPostItRepositorio
-    {
-    }
+    public interface IPostItRepositorio : IRepositorioBase<PostIt> { }
 }

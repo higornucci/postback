@@ -27,12 +27,12 @@
         <div class="styled-select">
             @Html.DropDownListFor(x => x.Categoria, ViewBag.Categorias as SelectList)
         </div>
-        
+
         <input id="Conteudo" name="Conteudo" type="text" maxlength="90" />
         @Html.TextBoxFor(x => x.Tag)
 
         <input type="button" id="enviar" value="enviar" name="enviar" />
-        
+
         
        
 
@@ -42,13 +42,20 @@
         <span class="conteudo">#postback - hackathon 2.0</span>
     </div>
     @section scripts {
+    
+    <link href="@Url.Content("~/Content/themes/base/minified/jquery-ui.min.css")" rel="stylesheet" />
         <script src="~/Scripts/jquery-1.10.2.js"></script>
         <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
         <script src="~/signalr/hubs"></script>
 
         <script>
 
-            $(function () {
+        $(function() {
+            $("#Tag").autocomplete({
+                source: "/PostIt/SugerirTags",
+                minLength: 2,
+            });
 
                 var hub = $.connection.postItHub;
 
