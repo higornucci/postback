@@ -15,22 +15,5 @@ namespace Postback.Dominio
             CorHexadecimal = corEmHexadecimal;
             Descricao = descricao;
         }
-
-        // override object.Equals
-        public override bool Equals(object obj)
-        {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            return Descricao.Equals(((Categoria)obj).Descricao);
-        }
-
-        // override object.GetHashCode
-        public override int GetHashCode()
-        {
-            return Descricao.GetHashCode();
-        }
     }
 }
