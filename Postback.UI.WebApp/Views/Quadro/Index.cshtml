@@ -19,7 +19,7 @@
                 <ul data-tag="@grupo.Assunto" class="agrupamento grupo">
                     @foreach(var postIt in grupo.PostIts)
                     {
-                        <li class="postIt" style="border-left: solid 5px @categoria.Key.CorHexadecimal;">
+                        <li class="postIt postitAdicionado" style="border-left: solid 5px @categoria.Key.CorHexadecimal;">
                             <p class="conteudo">@postIt.Conteudo</p>
                             <p class="hashtag">#@postIt.Tag.Nome.ToHashTag()</p>
                         </li>
