@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Postback.UI.WebApp.ViewModels.CategoriaVm>
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="master">
@@ -13,12 +14,18 @@
 
     <div class="conteudoMobile">
         <form id="frmPostIt" action="@Url.Action("Post", "PostIt")" method="POST">
-            <div class="styled-select">
-                @Html.DropDownList("CategoriaId", ViewBag.Categorias as SelectList)
+            <div class="styled-select">                
+                <select id="CategoriaId" name="CategoriaId">
+                    <option value=""></option>
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Id" data-categoriacor="@item.CorHexadecimal">@item.Descricao</option>                        
+                    }
+                </select>
             </div>
 
-            <input id="Conteudo" type="text" maxlength="90" name="Conteudo">
-            <input id="TagNome" type="text" value="" name="TagNome">
+            <input id="Conteudo" type="text" name="Conteudo" maxlength="90">
+            <input id="TagNome" type="text" name="TagNome" >
 
             <input type="button" id="enviar" value="enviar" name="enviar" />
         </form>
@@ -53,7 +60,7 @@
                     var dados = frm.serialize();
                     $.post("@Url.Action("Post", "PostIt")", dados, function () {
 
-                        hub.server.enviarNovoPostIt($("#Conteudo").val(), $("#TagNome").val(), $("#CategoriaId").val());
+                        hub.server.enviarNovoPostIt($("#Conteudo").val(), $("#TagNome").val(), $("#CategoriaId").val(), $("#CategoriaId option:selected").data("categoriacor"));
                         frm[0].reset();
 
                     }); // post
