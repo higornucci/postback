@@ -22,7 +22,7 @@
                     {
                         <li class="postIt" style="border-left: solid 5px @categoria.Key.CorHexadecimal;">
                             <p class="conteudo">@postIt.Conteudo</p>
-                            <p class="hashtag">@postIt.Tag</p>
+                            <p class="hashtag">#@postIt.Tag.ToHashTag()</p>
                         </li>
                     }
                 </ul>

@@ -43,7 +43,7 @@
 
         $(function() {
             $("#Tag").autocomplete({
-                source: "/PostIt/SugerirTags",
+                source: "@Url.Action("SugerirTags")",
                 minLength: 2,
             });
 
