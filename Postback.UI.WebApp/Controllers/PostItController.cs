@@ -29,9 +29,11 @@ namespace Postback.UI.WebApp.Controllers
             return View();
         }
 
-        public JsonResult SugerirTags(string termo)
+        public JsonResult SugerirTags(string term)
         {
-            var lista = _sugestaoDeTagRepositorio.ObterTodos().Select(x => new { id = "tag_" + x.Tag.Nome, label = x.Tag.Nome, value = x.Tag.Nome });
+            var lista = _sugestaoDeTagRepositorio.ObterTodos()
+                .Where(x => x.Tag.Nome.Contains(term))
+                .Select(x => new { id = "tag_" + x.Tag.Nome, label = x.Tag.Nome, value = x.Tag.Nome });
 
             return Json(lista, JsonRequestBehavior.AllowGet);
         }
