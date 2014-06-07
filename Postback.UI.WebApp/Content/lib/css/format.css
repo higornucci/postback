@@ -47,7 +47,7 @@ body {
   margin: 0 auto;
 }
 .styled-select select {
-  border: 0 none;
+  border: 1px solid #CCCCCC;
   border-radius: 5px;
   font-size: 16px;
   height: 45px;
@@ -55,6 +55,7 @@ body {
   width: 338px;
 }
 input[type="text"] {
+  border: 1px solid #CCCCCC;
   margin: 10px 0;
   display: block;
   background: #fff;
@@ -62,7 +63,6 @@ input[type="text"] {
   padding: 5px;
   font-size: 16px;
   line-height: 1;
-  border: 0;
   border-radius: 5px;
   height: 35px;
   -webkit-appearance: none;
