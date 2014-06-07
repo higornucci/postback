@@ -145,9 +145,9 @@
     <Compile Include="CompositionRoot\SimpleInjectorControllerFactory.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ICategoriaRepositorio.cs" />
     <Compile Include="Controllers\PostItController.cs" />
     <Compile Include="Controllers\QuadroController.cs" />
+    <Compile Include="Filters\UnitOfWorkAttribute.cs" />
     <Compile Include="Controllers\SugestaoDeTagController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -155,9 +155,11 @@
     <Compile Include="PostItHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PostItVm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\img\logo-postback.jpg" />
+    <Content Include="Content\img\new_arrow.png" />
     <Content Include="Content\lib\css\format.css">
       <DependentUpon>format.less</DependentUpon>
     </Content>
@@ -270,8 +272,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\SugestaoDeTag\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

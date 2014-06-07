@@ -2,6 +2,7 @@
 using System.Security.Cryptography.X509Certificates;
 using Postback.Dominio;
 using System.Web.Mvc;
+using Postback.UI.WebApp.ViewModels;
 
 namespace Postback.UI.WebApp.Controllers
 {
@@ -41,17 +42,24 @@ namespace Postback.UI.WebApp.Controllers
             ViewBag.Categorias = new SelectList(itens, "Value", "Text");
         }
 
-        [HttpPost]
-        public ActionResult Criar(PostIt postIt)
-        {
-            return View();
-        }
-
         public JsonResult SugerirTags(string termo)
         {
             var lista = _sugestaoDeTagRepositorio.ObterTodos().Select(x => new {id = "tag_" + x.Nome, label = x.Nome, value = x.Nome});
 
             return Json(lista, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult Post(PostItVm postItVm)
+        {
+            var categoria = _categoriaRepositorio.ObterPor(postItVm.CategoriaId);
+            var quadro = _quadroRepositorio.ObterPor(postItVm.QuadroId);
+            var tag = new Tag(postItVm.TagNome);
+
+            var postIt = new PostIt(postItVm.Conteudo, quadro, categoria, tag);
+            _postItRepositorio.Adicionar(postIt);
+
+            return Json(new { sucesso = true });
         }
 }
 }

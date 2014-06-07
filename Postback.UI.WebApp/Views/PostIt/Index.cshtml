@@ -1,18 +1,34 @@
 ﻿@model Postback.Dominio.PostIt
 
-@{
-    ViewBag.Title = "title";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<!DOCTYPE html>
 
-<h2>title</h2>
-<div>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/lib/css/format.css" rel="stylesheet" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <h1>title</h1>
+
+    <div class="master">
+
+        <div class="styled-select">
     @Html.DropDownListFor(x => x.Categoria, ViewBag.Categorias as SelectList)
+        </div>
+
     @Html.TextBoxFor(x => x.Conteudo)
     @Html.TextBoxFor(x => x.Tag)
 
-        
     <input type="button" id="enviar" value="enviar" name="enviar" />
+
 </div>
 
 @section scripts {
@@ -33,7 +49,7 @@
 
             var hub = $.connection.postItHub;
 
-            $.connection.hub.start().done(function() {
+                $.connection.hub.start().done(function () {
                 $('#enviar').click(function () {
                     hub.server.enviarNovoPostIt({ "Texto": "Vai ficar o bicho" });
                 });
@@ -42,3 +58,7 @@
 
     </script>
 }
+
+
+</body>
+</html>

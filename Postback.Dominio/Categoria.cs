@@ -1,5 +1,4 @@
-﻿using System;
-using Postback.Dominio._Base;
+﻿using Postback.Dominio._Base;
 using System.Drawing;
 
 namespace Postback.Dominio
@@ -26,7 +25,7 @@ namespace Postback.Dominio
                 return false;
             }
 
-            return Descricao.Equals(((Categoria) obj).Descricao);
+            return Descricao.Equals(((Categoria)obj).Descricao);
         }
 
         // override object.GetHashCode
