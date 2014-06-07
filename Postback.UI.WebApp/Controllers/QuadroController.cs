@@ -15,12 +15,6 @@ namespace Postback.UI.WebApp.Controllers
 
         public ActionResult Index(int id)
         {
-            
-            return View();
-        }
-
-        public ActionResult Exibir(int id)
-        {
             List<PostIt> postItsDoQuadro = new List<PostIt>();
 
             postItsDoQuadro.AddRange(PostItBuilder.VariosPostItsDaCategoria("Bom", "#53da3f"));

@@ -15,22 +15,32 @@
 
 </head>
 <body>
+    <div class="topoMobile">
 
+        <img src="@Url.Content("~/Content/img/logo-postback.jpg")" alt="PostBack">
+        <div class="adicionar"></div>
+
+    </div>
     <h1>title</h1>
 
-    <div class="master">
-
+    <div class="conteudoMobile">
         <div class="styled-select">
             @Html.DropDownListFor(x => x.Categoria, ViewBag.Categorias as SelectList)
         </div>
-
-        @Html.TextBoxFor(x => x.Conteudo)
+        
+        <input id="Conteudo" name="Conteudo" type="text" maxlength="90" />
         @Html.TextBoxFor(x => x.Tag)
 
         <input type="button" id="enviar" value="enviar" name="enviar" />
+        
+        
+       
+
 
     </div>
-
+    <div class="rodape">
+        <span class="conteudo">#postback - hackathon 2.0</span>
+    </div>
     @section scripts {
         <script src="~/Scripts/jquery-1.10.2.js"></script>
         <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
