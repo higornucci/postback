@@ -1,9 +1,10 @@
 ﻿USE [POSTBACK]
 GO
 
-INSERT INTO Categoria(descricao) VALUES('BOM', '#53da3f')
-INSERT INTO Categoria(descricao) VALUES('MELHORAR', '#5bb4e5')
-INSERT INTO Categoria(descricao) VALUES('APRENDI', '#fee000')
+
+INSERT INTO Categoria(descricao, CorHexadecimal) VALUES('BOM', '#53da3f')
+INSERT INTO Categoria(descricao, CorHexadecimal) VALUES('MELHORAR', '#5bb4e5')
+INSERT INTO Categoria(descricao, CorHexadecimal) VALUES('APRENDI', '#fee000')
 
 INSERT INTO Quadro(descricao, ativo) VALUES('HACKATON 2.0', 1)
 
