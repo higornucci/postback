@@ -43,10 +43,10 @@
 
             var hub = $.connection.postItHub;
 
-            hub.client.novoPostIt = function (conteudo, tagNome, categoriaId, categoriaCor) {
+            hub.client.novoPostIt = function (conteudo, tagNome, tagNomeToHashTag, categoriaId, categoriaCor) {
 
                 var postIt = "<li class='postIt' style='border-left: solid 5px " + categoriaCor +
-                             ";'><p class='conteudo'>" + conteudo + "</p><p class='hashtag'>#" + tagNome + "</p></li>";
+                             ";'><p class='conteudo'>" + conteudo + "</p><p class='hashtag'>#" + tagNomeToHashTag + "</p></li>";
 
                 var grupo = $("li[data-categoriaid=" + categoriaId + "] ul[data-tag='" + tagNome + "']");
                 if (grupo.length == 0) {
