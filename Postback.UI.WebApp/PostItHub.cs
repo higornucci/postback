@@ -4,14 +4,9 @@ namespace Postback.UI.WebApp
 {
     public class PostItHub : Hub
     {
-        public void EnviarNovoPostIt(PostItModel postIt)
+        public void EnviarNovoPostIt(string conteudo, string tagNome, int categoriaId)
         {
-            Clients.All.novoPostIt(postIt.Texto);
+            Clients.All.novoPostIt(conteudo, tagNome, categoriaId);
         }
-    }
-
-    public class PostItModel
-    {
-        public string Texto { get; set; }
     }
 }

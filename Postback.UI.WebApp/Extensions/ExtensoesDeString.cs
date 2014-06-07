@@ -1,8 +1,6 @@
-﻿using System.Globalization;
 using System.Linq;
-using System.Threading;
 
-namespace Postback.Dominio.Helpers
+namespace Postback.UI.WebApp.Extensions
 {
     public static class ExtensoesDeString
     {

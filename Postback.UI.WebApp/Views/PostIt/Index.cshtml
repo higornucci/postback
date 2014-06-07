@@ -1,21 +1,11 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
+﻿@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Content/lib/css/format.css" rel="stylesheet" />
-    <title>@ViewBag.Title</title>
+<h1>Preencher Post-It</h1>
 
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-</head>
-<body>
-
-    <h1>title</h1>
-
-    <div class="master">
+<div class="master">
 
      <form id="frmPostIt" action="@Url.Action("Post", "PostIt")">
         <div class="styled-select">
@@ -25,14 +15,13 @@
          @Html.TextBox("Conteudo")
          @Html.TextBox("TagNome")
 
-    <input type="button" id="enviar" value="enviar" name="enviar" />
+        <input type="button" id="enviar" value="enviar" name="enviar" />
      </form>
 </div>
 
-@section scripts {
-    
+@section scripts
+{
     <link href="@Url.Content("~/Content/themes/base/minified/jquery-ui.min.css")" rel="stylesheet" />
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
     <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
     <script src="~/signalr/hubs"></script>
@@ -49,26 +38,23 @@
             var hub = $.connection.postItHub;
 
             $.connection.hub.start().done(function() {
-
-
+                
                 $("#enviar").click(function() {
 
                     var frm = $("#frmPostIt");
                     var dados = frm.serialize();
-                    $.post("@Url.Action("Post", "PostIt")", dados).success(function() {
+                    $.post("@Url.Action("Post", "PostIt")", dados, function() {
 
+                        hub.server.enviarNovoPostIt($("#Conteudo").val(), $("#TagNome").val(), $("#CategoriaId").val());
                         frm[0].reset();
-                        hub.server.enviarNovoPostIt({ "Texto" : "ABACAXI"});
-                        // mensagem de sucesso
-                    });
 
-                });
+                    }); // post
 
-            });
-        });
+                }); // enviar
 
-    </script>
+            }); // connection
+
+        }); // $
+
+    </script>        
 }
-
-</body>
-</html>

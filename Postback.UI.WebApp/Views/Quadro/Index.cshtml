@@ -1,4 +1,5 @@
-﻿@model Postback.UI.WebApp.ViewModels.QuadroAtivoVm
+﻿@using Postback.UI.WebApp.Extensions
+@model Postback.UI.WebApp.ViewModels.QuadroAtivoVm
 @{
     ViewBag.Title = "title";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,7 +20,7 @@
                     {
                         <li class="postIt" style="border-left: solid 5px @categoria.Key.CorHexadecimal;">
                             <p class="conteudo">@postIt.Conteudo</p>
-                            <p class="hashtag">#@postIt.Tag.ToHashTag()</p>
+                            <p class="hashtag">#@postIt.Tag.Nome.ToHashTag()</p>
                         </li>
                     }
                 </ul>
@@ -42,11 +43,13 @@
 
             var hub = $.connection.postItHub;
 
-            hub.client.novoPostIt = function (texto) {
+            hub.client.novoPostIt = function (conteudo, tagNome, categoriaId) {
                 // Add the message to the page.
 
-                alert(texto);
-                $('#discussion').append('<li><strong>' + texto + '</strong></li>');
+                alert(conteudo);
+                alert(tagNome);
+                alert(categoriaId);
+                //$('#discussion').append('<li><strong>' + conteudo + '</strong></li>');
             };
         })
 
