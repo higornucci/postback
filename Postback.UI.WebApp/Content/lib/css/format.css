@@ -49,15 +49,12 @@ body {
   margin: 0 auto;
 }
 .styled-select select {
-  background: url(../../img/new_arrow.png) no-repeat 346px #ffffff;
-  width: 368px;
-  padding: 5px;
-  font-size: 16px;
-  line-height: 1;
-  border: 0;
+  border: 0 none;
   border-radius: 5px;
+  font-size: 16px;
   height: 45px;
-  -webkit-appearance: none;
+  padding: 13px;
+  width: 368px;
 }
 input[type="text"] {
   margin: 10px 0;
@@ -78,7 +75,7 @@ input[type="text"]#Conteudo {
 input[type="button"] {
   background: #fbdb00;
   width: 300px;
-  padding: 10px;
+  padding: 15px 10px;
   border: 0;
   color: #000;
   font-size: 20px;
@@ -127,6 +124,7 @@ input[type="button"] {
 }
 .agrupamento .postIt p.conteudo {
   margin-bottom: 0;
+  text-transform: lowercase;
 }
 .agrupamento .postIt p.hashtag {
   font-size: 15px;
