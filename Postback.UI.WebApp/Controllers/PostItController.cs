@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using Postback.Dominio;
+﻿using Postback.Dominio;
 using System.Web.Mvc;
 using Postback.UI.WebApp.ViewModels;
+using System.Linq;
 
 namespace Postback.UI.WebApp.Controllers
 {
@@ -44,7 +43,7 @@ namespace Postback.UI.WebApp.Controllers
 
         public JsonResult SugerirTags(string termo)
         {
-            var lista = _sugestaoDeTagRepositorio.ObterTodos().Select(x => new {id = "tag_" + x.Nome, label = x.Nome, value = x.Nome});
+            var lista = _sugestaoDeTagRepositorio.ObterTodos().Select(x => new { id = "tag_" + x.Tag.Nome, label = x.Tag.Nome, value = x.Tag.Nome });
 
             return Json(lista, JsonRequestBehavior.AllowGet);
         }
