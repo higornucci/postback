@@ -8,7 +8,7 @@
 
         public Tag(string nome)
         {
-            Nome = nome;
+            Nome = nome.ToLower();
         }
 
         public override string ToString()

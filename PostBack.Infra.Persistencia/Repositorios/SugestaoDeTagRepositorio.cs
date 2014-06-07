@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using NHibernate;
 using Postback.Dominio;
 
@@ -11,6 +12,11 @@ namespace PostBack.Infra.Persistencia.Repositorios
         public IEnumerable<SugestaoDeTag> ObterTodos()
         {
             return Enumerar();
+        }
+
+        public SugestaoDeTag ObterPorTag(Tag tag)
+        {
+            return All().FirstOrDefault(x => x.Tag.Equals(tag));
         }
     }
 }

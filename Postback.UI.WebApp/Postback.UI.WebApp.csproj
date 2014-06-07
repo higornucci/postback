@@ -150,7 +150,6 @@
     <Compile Include="Extensions\ExtensoesDeString.cs" />
     <Compile Include="Extensions\ItemDefault.cs" />
     <Compile Include="Filters\UnitOfWorkAttribute.cs" />
-    <Compile Include="Controllers\SugestaoDeTagController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -48,6 +48,9 @@ namespace Postback.UI.WebApp.Controllers
             var postIt = new PostIt(postItVm.Conteudo, quadro, categoria, tag);
             _postItRepositorio.Adicionar(postIt);
 
+            if (_sugestaoDeTagRepositorio.ObterPorTag(tag) == null)
+                _sugestaoDeTagRepositorio.Adicionar(new SugestaoDeTag(tag));
+
             return Json(new { sucesso = true });
         }
     }
