@@ -1,67 +1,67 @@
 ﻿@model IEnumerable<Postback.UI.WebApp.ViewModels.CategoriaVm>
-@{
+    @{
         ViewBag.Title = "Post-It";
         Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<div class="master">
-    <div class="topoMobile">
+    }
+    <div class="master">
+        <div class="topoMobile">
 
-        <img src="@Url.Content("~/Content/img/logo-postback.jpg")" alt="PostBack">
-        <div class="adicionar"></div>
+            <img src="@Url.Content("~/Content/img/logo-postback.jpg")" alt="PostBack">
+            <div class="adicionar"></div>
 
 
-    </div>
-    <h1>HACKATON 2.0</h1>
+        </div>
+        <h1>HACKATON 2.0</h1>
 
-    <div style="display: none;" id="MensagemSucesso" onclick="esconder()"></div>
+        <div style="display: none;" id="MensagemSucesso" onclick="esconder()"></div>
     <div style="display: none;" id="MensagemErro" onclick="esconder()"></div>
 
-    <div class="conteudoMobile">
-        <form id="frmPostIt" action="@Url.Action("Post", "PostIt")" method="POST">
-            <div class="styled-select">
-                <select id="CategoriaId" name="CategoriaId">
-                    <option value=""></option>
-                    @foreach (var item in Model)
+        <div class="conteudoMobile">
+            <form id="frmPostIt" action="@Url.Action("Post", "PostIt")" method="POST">
+                <div class="styled-select">
+                    <select id="CategoriaId" name="CategoriaId">
+                        <option value=""></option>
+                        @foreach (var item in Model)
                         {
-                        <option value="@item.Id" data-categoriacor="@item.CorHexadecimal">@item.Descricao</option>
+                            <option value="@item.Id" data-categoriacor="@item.CorHexadecimal">@item.Descricao</option>
                         }
-                </select>
-            </div>
+                    </select>
+                </div>
 
-            <textarea id="Conteudo" maxlength="120" placeholder=" Digite o conteudo" name="Conteudo"></textarea>
-            <input id="TagNome" type="text" value="" placeholder="Informe uma hashtag" name="TagNome">
+                <textarea id="Conteudo" maxlength="120" placeholder=" Digite o conteudo" name="Conteudo"></textarea>
+                <input id="TagNome" type="text" value="" placeholder="Informe uma hashtag" name="TagNome">
 
-            <input type="button" id="enviar" value="enviar" name="enviar" />
-        </form>
+                <input type="button" id="enviar" value="enviar" name="enviar" />
+            </form>
+        </div>
+
     </div>
 
-</div>
-
-@section scripts
+    @section scripts
 {
-    <link href="@Url.Content("~/Content/themes/base/minified/jquery-ui.min.css")" rel="stylesheet" />
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
-    <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
-    <script src="~/signalr/hubs"></script>
+        <link href="@Url.Content("~/Content/themes/base/minified/jquery-ui.min.css")" rel="stylesheet" />
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
+        <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+        <script src="~/signalr/hubs"></script>
 
-    <script>
+        <script>
 
-        $(function () {
+            $(function () {
 
-            $("#TagNome").autocomplete({
-                source: "@Url.Action("SugerirTags", "PostIt")",
-                minLength: 2,
-            });
+                $("#TagNome").autocomplete({
+                    source: "@Url.Action("SugerirTags", "PostIt")",
+                    minLength: 2,
+                });
 
-            var hub = $.connection.postItHub;
+                var hub = $.connection.postItHub;
 
-            $.connection.hub.start().done(function () {
+                $.connection.hub.start().done(function () {
 
-                $("#enviar").click(function () {
+                    $("#enviar").click(function () {
 
-                    var frm = $("#frmPostIt");
-                    var dados = frm.serialize();
+                        var frm = $("#frmPostIt");
+                        var dados = frm.serialize();
                     var erros = [];
 
                     if ($("#Conteudo").val() == "")
@@ -73,7 +73,7 @@
 
 
                     if (erros.length == 0) {
-                        $.post("@Url.Action("Post", "PostIt")", dados, function () {
+                            $.post("@Url.Action("Post", "PostIt")", dados, function () {
 
                             hub.server.enviarNovoPostIt($("#Conteudo").val(), $("#TagNome").val(), $("#CategoriaId").val(), $("#CategoriaId option:selected").data("categoriacor"));
                             frm[0].reset();
@@ -85,12 +85,12 @@
                     }
 
 
-                }); // enviar
-            }); // connection
+                    }); // enviar
+                }); // connection
 
-        }); // $
+            }); // $
 
-        function esconder() {
-            document.getElementById('MensagemSucesso').style.display = 'none';
-        }
-    </script>
+            function esconder() {
+                document.getElementById('MensagemSucesso').style.display = 'none';
+            }
+        </script>

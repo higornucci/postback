@@ -48,6 +48,14 @@
   font-style: italic;
   cursor: pointer;
 }
+#MensagemErro {
+  background-color: #d47777;
+  padding: 10PX;
+  margin: 10px;
+  border-radius: 5px;
+  font-style: italic;
+  cursor: pointer;
+}
 html,
 body {
   font-family: arial;
