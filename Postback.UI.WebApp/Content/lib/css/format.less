@@ -5,12 +5,8 @@
 @branco:#ffffff;
 
 
-
-*{
-	font-family: arial;
-}
-
 html, body{
+    font-family: arial;
 	margin: 0;
 	padding: 0;
 	background: @background;
@@ -51,7 +47,7 @@ html, body{
 	}
 }
 .conteudoMobile{
-    width:360px;
+    width:340px;
     margin: 0 auto;
 }
 .centralizado{
@@ -60,22 +56,19 @@ html, body{
 }
 
 .styled-select select {
-   background: url(../../img/new_arrow.png) no-repeat 346px #fff;
-    width: 368px;
-    padding: 5px;
-    font-size: 16px;
-    line-height: 1;
-    border: 0;
+    border: 0 none;
     border-radius: 5px;
+    font-size: 16px;
     height: 45px;
-    -webkit-appearance: none;
+    padding: 13px;
+    width: 338px
 }
 
 input[type="text"]{
    margin: 10px 0;
    display:block;
    background:#fff;
-   width: 360px;
+   width: 330px;
    padding: 5px;
    font-size: 16px;
    line-height: 1;
@@ -91,14 +84,15 @@ input[type="text"]{
 input[type="button"] {
     background: #fbdb00;
     width:300px;
-    padding:10px;
+    padding:15px 10px;
     border:0;
     color: #000;
     font-size:20px;
-    margin: 0 0 0 35px;
+    margin: 0 0 0 20px;
+    cursor:pointer;
 }
 .template{
-	padding: 0;
+	padding: 0 0 35px 0;
 	margin: 0;
 	width: 100%;
 
@@ -117,7 +111,7 @@ input[type="button"] {
 	padding: 0;
 
 	.postIt{
-        transition: all 400ms ease-in-out 10ms;
+        transition: all 250ms ease-in-out 10ms;
 		background-color: #fff;
 		list-style: none;
 		display: block;
@@ -126,7 +120,7 @@ input[type="button"] {
 		min-height: 100px;
 
 	&:hover{
-        transition: all 400ms ease-in-out 10ms;
+        transition: all 250ms ease-in-out 10ms;
 		background-color: #ffffe8;
 		cursor: default;
 	}
@@ -143,6 +137,7 @@ input[type="button"] {
 
 			&.conteudo{
 				margin-bottom: 0;
+                text-transform: lowercase;
 			}
 			&.hashtag{
 				font-size: 15px;
