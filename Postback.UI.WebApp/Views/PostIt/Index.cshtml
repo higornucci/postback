@@ -1,14 +1,11 @@
-﻿@model Postback.Dominio.PostIt
-
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html>
 <head>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Content/lib/css/format.css" rel="stylesheet" />
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -20,15 +17,16 @@
 
     <div class="master">
 
+     <form id="frmPostIt" action="@Url.Action("Post", "PostIt")">
         <div class="styled-select">
-    @Html.DropDownListFor(x => x.Categoria, ViewBag.Categorias as SelectList)
+             @Html.DropDownList("CategoriaId", ViewBag.Categorias as SelectList)
         </div>
 
-    @Html.TextBoxFor(x => x.Conteudo)
-    @Html.TextBoxFor(x => x.Tag)
+         @Html.TextBox("Conteudo")
+         @Html.TextBox("TagNome")
 
     <input type="button" id="enviar" value="enviar" name="enviar" />
-
+     </form>
 </div>
 
 @section scripts {
@@ -42,23 +40,33 @@
     <script>
 
         $(function() {
-            $("#Tag").autocomplete({
-                source: "@Url.Action("SugerirTags")",
+
+            $("#TagNome").autocomplete({
+                source: "/PostIt/SugerirTags",
                 minLength: 2,
             });
 
             var hub = $.connection.postItHub;
 
-                $.connection.hub.start().done(function () {
-                $('#enviar').click(function () {
+            $.connection.hub.start().done(function() {
+
+                $("#enviar").click(function() {
+
+                    var frm = $("#frmPostIt");
+                    var dados = frm.serialize();
+                    $.post("@Url.Action("Post", "PostIt")", dados).success(function() {
+
+                        frm[0].reset();                        
                     hub.server.enviarNovoPostIt({ "Texto": "Vai ficar o bicho" });
+                        // mensagem de sucesso
+                    });
+
+                });
                 });
             });
-        })
 
     </script>
 }
-
 
 </body>
 </html>

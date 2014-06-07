@@ -1,7 +1,8 @@
 ﻿using Postback.Dominio;
-using System.Web.Mvc;
+using Postback.UI.WebApp.Extensions;
 using Postback.UI.WebApp.ViewModels;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace Postback.UI.WebApp.Controllers
 {
@@ -12,7 +13,7 @@ namespace Postback.UI.WebApp.Controllers
         private readonly ICategoriaRepositorio _categoriaRepositorio;
         private readonly ISugestaoDeTagRepositorio _sugestaoDeTagRepositorio;
 
-        public PostItController(IQuadroRepositorio quadroRepositorio, IPostItRepositorio postItRepositorio, 
+        public PostItController(IQuadroRepositorio quadroRepositorio, IPostItRepositorio postItRepositorio,
             ICategoriaRepositorio categoriaRepositorio, ISugestaoDeTagRepositorio sugestaoDeTagRepositorio)
         {
             _quadroRepositorio = quadroRepositorio;
@@ -23,22 +24,9 @@ namespace Postback.UI.WebApp.Controllers
 
         public ActionResult Index()
         {
-            PrepararDropDown();
-
+            var quadroAtivo = _quadroRepositorio.ObterAtivo();
+            ViewBag.Categorias = new SelectList(quadroAtivo.Categorias.ToSelectList(c => c.Descricao, c => c.Id, itemDefault: ItemDefault.ComTextoEValoresVazios()), "value", "text");
             return View();
-        }
-
-        private void PrepararDropDown()
-        {
-            var itens = new SelectListItem[]
-            {
-                new SelectListItem() {Selected = true, Text = "Selecione uma categoria", Value = ""},
-                new SelectListItem() {Selected = false, Text = "Bom", Value = "Bom"},
-                new SelectListItem() {Selected = false, Text = "Melhorar", Value = "Melhorar"},
-                new SelectListItem() {Selected = false, Text = "Aprendizado", Value = "Aprendizado"},
-            };
-
-            ViewBag.Categorias = new SelectList(itens, "Value", "Text");
         }
 
         public JsonResult SugerirTags(string term)
@@ -54,7 +42,7 @@ namespace Postback.UI.WebApp.Controllers
         public JsonResult Post(PostItVm postItVm)
         {
             var categoria = _categoriaRepositorio.ObterPor(postItVm.CategoriaId);
-            var quadro = _quadroRepositorio.ObterPor(postItVm.QuadroId);
+            var quadro = _quadroRepositorio.ObterAtivo();
             var tag = new Tag(postItVm.TagNome);
 
             var postIt = new PostIt(postItVm.Conteudo, quadro, categoria, tag);
@@ -62,5 +50,5 @@ namespace Postback.UI.WebApp.Controllers
 
             return Json(new { sucesso = true });
         }
-}
+    }
 }
