@@ -143,7 +143,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CompositionRoot\SimpleInjectorComposer.cs" />
     <Compile Include="CompositionRoot\SimpleInjectorControllerFactory.cs" />
-    <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostItController.cs" />
     <Compile Include="Controllers\QuadroController.cs" />
@@ -266,8 +265,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\PostIt\Index.cshtml" />
-    <Content Include="Views\Evento\Index.cshtml" />
-    <Content Include="Views\Evento\Criar.cshtml" />
     <Content Include="Views\Quadro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
