@@ -12,9 +12,6 @@ namespace Postback.Dominio.Helpers
 
             if (palavras.Any())
             {
-                CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
-                TextInfo textInfo = cultureInfo.TextInfo;
-
                 palavras = palavras.Select(UppercaseFirst).ToList();
             }
 
