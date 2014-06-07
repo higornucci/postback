@@ -53,6 +53,7 @@ body {
 }
 .conteudoMobile {
   width: 340px;
+  height: auto;
   margin: 0 auto;
 }
 .centralizado {
@@ -85,12 +86,12 @@ input[type="text"]#Conteudo {
 }
 input[type="button"] {
   background: #fbdb00;
-  width: 300px;
+  width: 340px;
   padding: 15px 10px;
   border: 0;
   color: #000;
   font-size: 20px;
-  margin: 0 0 0 20px;
+  margin: 45px 0 75px 0;
   cursor: pointer;
 }
 .template {
