@@ -86,7 +86,7 @@ input[type="button"] {
 }
 .template {
   padding: 0;
-  margin: 15px 0;
+  margin: 0;
   width: 100%;
 }
 .template .categoria {
@@ -96,7 +96,8 @@ input[type="button"] {
   min-height: 600px;
 }
 .agrupamento {
-  margin: 0 0 45px 0;
+  position: relative;
+  margin: 0 0 30px 0;
   padding: 0;
 }
 .agrupamento .postIt {
