@@ -1,8 +1,6 @@
-﻿* {
-  font-family: arial;
-}
-html,
+﻿html,
 body {
+  font-family: arial;
   margin: 0;
   padding: 0;
   background: #ebebeb;
@@ -41,7 +39,7 @@ body {
   height: 65px;
 }
 .conteudoMobile {
-  width: 360px;
+  width: 340px;
   margin: 0 auto;
 }
 .centralizado {
