@@ -1,6 +1,8 @@
-﻿namespace Postback.Dominio
+﻿using Postback.Dominio._Base;
+
+namespace Postback.Dominio
 {
-    public class Tag
+    public class Tag : ObjetoDeValor<Tag>
     {
         public string Nome { get; private set; }
 
@@ -8,7 +10,7 @@
 
         public Tag(string nome)
         {
-            Nome = nome;
+            Nome = nome.ToLower();
         }
 
         public override string ToString()
@@ -16,12 +18,12 @@
             return Nome;
         }
 
-        public override bool Equals(object obj)
+        protected override bool TodosOsAtributosSaoIguais(Tag outraTag)
         {
-            return ((Tag)obj).Nome == Nome;
+            return Nome.Equals(outraTag.Nome);
         }
 
-        public override int GetHashCode()
+        protected override int ObterHashCode()
         {
             return Nome.GetHashCode();
         }

@@ -1,17 +1,16 @@
 ﻿@using Postback.UI.WebApp.Extensions
 @model Postback.UI.WebApp.ViewModels.QuadroAtivoVm
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Quadro de Feedback";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <h1>@Model.QuadroDescricao</h1>
 
 <ul class="template centralizado">
     @foreach (var categoria in Model.Grupos.GroupBy(x => x.Categoria))
     {
-        <li data="@categoria.Key.Descricao" class="categoria">
+        <li data-categoriaid="@categoria.Key.Id" class="categoria">
             <h2>@categoria.Key.Descricao</h2>
 
             @foreach (var grupo in Model.Grupos.Where(x => x.Categoria.Descricao == categoria.Key.Descricao))
@@ -44,13 +43,21 @@
 
             var hub = $.connection.postItHub;
 
-            hub.client.novoPostIt = function (conteudo, tagNome, categoriaId) {
-                // Add the message to the page.
+            hub.client.novoPostIt = function (conteudo, tagNome, tagNomeToHashTag, categoriaId, categoriaCor) {
 
-                alert(conteudo);
-                alert(tagNome);
-                alert(categoriaId);
-                //$('#discussion').append('<li><strong>' + conteudo + '</strong></li>');
+                var postIt = "<li class='postIt' style='border-left: solid 5px " + categoriaCor +
+                             ";'><p class='conteudo'>" + conteudo + "</p><p class='hashtag'>#" + tagNomeToHashTag + "</p></li>";
+
+                var grupo = $("li[data-categoriaid=" + categoriaId + "] ul[data-tag='" + tagNome + "']");
+                if (grupo.length == 0) {
+                    postIt = "<ul data-tag='" + tagNome + "' class='agrupamento grupo'>" + postIt + "</ul>";
+
+                    $("li[data-categoriaid=" + categoriaId + "]").append(postIt);
+                    return;
+                }
+
+                grupo.append(postIt);
+
             };
         })
 

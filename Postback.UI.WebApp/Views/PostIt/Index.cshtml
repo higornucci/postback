@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Postback.UI.WebApp.ViewModels.CategoriaVm>
+@{
+    ViewBag.Title = "Post-It";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="master">
@@ -8,17 +10,21 @@
         <div class="adicionar"></div>
 
     </div>
-
-    <h1>title</h1>
-
+    <div style="background-color: #8BDA80;padding: 10PX;margin: 10px;border-radius: 5px;font-style: italic;display:none" id="MensagemSucesso"></div>
     <div class="conteudoMobile">
         <form id="frmPostIt" action="@Url.Action("Post", "PostIt")" method="POST">
-            <div class="styled-select">
-                @Html.DropDownList("CategoriaId", ViewBag.Categorias as SelectList)
+            <div class="styled-select">                
+                <select id="CategoriaId" name="CategoriaId">
+                    <option value=""></option>
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Id" data-categoriacor="@item.CorHexadecimal">@item.Descricao</option>                        
+                    }
+                </select>
             </div>
 
-            <input id="Conteudo" type="text" maxlength="120" name="Conteudo">
-            <input id="TagNome" type="text" value="" name="TagNome">
+            <input id="Conteudo" type="text" name="Conteudo" maxlength="90">
+            <input id="TagNome" type="text" name="TagNome" >
 
             <input type="button" id="enviar" value="enviar" name="enviar" />
         </form>
@@ -53,8 +59,9 @@
                     var dados = frm.serialize();
                     $.post("@Url.Action("Post", "PostIt")", dados, function () {
 
-                        hub.server.enviarNovoPostIt($("#Conteudo").val(), $("#TagNome").val(), $("#CategoriaId").val());
+                        hub.server.enviarNovoPostIt($("#Conteudo").val(), $("#TagNome").val(), $("#CategoriaId").val(), $("#CategoriaId option:selected").data("categoriacor"));
                         frm[0].reset();
+                        $("#MensagemSucesso").show().html("PostIt colado!");
 
                     }); // post
 

@@ -1,5 +1,4 @@
 ﻿using Postback.Dominio;
-using Postback.UI.WebApp.Extensions;
 using Postback.UI.WebApp.ViewModels;
 using System.Linq;
 using System.Web.Mvc;
@@ -25,8 +24,10 @@ namespace Postback.UI.WebApp.Controllers
         public ActionResult Index()
         {
             var quadroAtivo = _quadroRepositorio.ObterAtivo();
-            ViewBag.Categorias = new SelectList(quadroAtivo.Categorias.ToSelectList(c => c.Descricao, c => c.Id, itemDefault: ItemDefault.ComTextoEValoresVazios()), "value", "text");
-            return View();
+
+            var categoriasVm = quadroAtivo.Categorias.Select(c => new CategoriaVm(c.Id, c.Descricao, c.CorHexadecimal));
+
+            return View(categoriasVm);
         }
 
         public JsonResult SugerirTags(string term)
@@ -47,6 +48,9 @@ namespace Postback.UI.WebApp.Controllers
 
             var postIt = new PostIt(postItVm.Conteudo, quadro, categoria, tag);
             _postItRepositorio.Adicionar(postIt);
+
+            if (_sugestaoDeTagRepositorio.ObterPorTag(tag) == null)
+                _sugestaoDeTagRepositorio.Adicionar(new SugestaoDeTag(tag));
 
             return Json(new { sucesso = true });
         }
