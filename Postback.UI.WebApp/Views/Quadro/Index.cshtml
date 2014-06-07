@@ -5,6 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+  if (screen.width <= 699) {
+  document.location = "index.html";
+  }
+</script>
+
 <h1>@Model.QuadroDescricao</h1>
 
 <ul class="template centralizado">
