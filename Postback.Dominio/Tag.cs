@@ -1,4 +1,6 @@
-﻿namespace Postback.Dominio
+﻿using Postback.Dominio.Helpers;
+
+namespace Postback.Dominio
 {
     public class Tag
     {
@@ -24,6 +26,11 @@
         public override int GetHashCode()
         {
             return Nome.GetHashCode();
+        }
+
+        public string ToHashTag()
+        {
+            return Nome.ToHashTag();
         }
     }
 }

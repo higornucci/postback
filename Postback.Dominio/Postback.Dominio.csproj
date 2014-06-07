@@ -38,6 +38,7 @@
     <Compile Include="AgrupadorDePostIt.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Grupo.cs" />
+    <Compile Include="Helpers\ExtensoesDeString.cs" />
     <Compile Include="ICategoriaRepositorio.cs" />
     <Compile Include="IPostItRepositorio.cs" />
     <Compile Include="IQuadroRepositorio.cs" />

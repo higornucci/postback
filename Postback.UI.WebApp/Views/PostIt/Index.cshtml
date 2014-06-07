@@ -15,17 +15,17 @@
 
     <h1>title</h1>
 
- <div class="master">
-     
+    <div class="master">
+
      <form id="frmPostIt" action="@Url.Action("Post", "PostIt")">
-         <div class="styled-select">
+        <div class="styled-select">
              @Html.DropDownList("CategoriaId", ViewBag.Categorias as SelectList)
-         </div>
+        </div>
 
          @Html.TextBox("Conteudo")
          @Html.TextBox("TagNome")
 
-         <input type="button" id="enviar" value="enviar" name="enviar" />
+    <input type="button" id="enviar" value="enviar" name="enviar" />
      </form>
 </div>
 
@@ -57,13 +57,13 @@
                     $.post("@Url.Action("Post", "PostIt")", dados).success(function() {
 
                         frm[0].reset();                        
-                        hub.server.enviarNovoPostIt({ "Texto": "Vai ficar o bicho" });
+                    hub.server.enviarNovoPostIt({ "Texto": "Vai ficar o bicho" });
                         // mensagem de sucesso
                     });
 
                 });
+                });
             });
-        });
 
     </script>
 }
