@@ -18,12 +18,12 @@
 
         public override bool Equals(object obj)
         {
-            return ((Tag)obj).Nome == this.Nome;
+            return ((Tag)obj).Nome == Nome;
         }
 
         public override int GetHashCode()
         {
-            return this.Nome.GetHashCode();
+            return Nome.GetHashCode();
         }
     }
 }
