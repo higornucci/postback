@@ -13,7 +13,10 @@ namespace Postback.UI.WebApp.Extensions
                 palavras = palavras.Select(UppercaseFirst).ToList();
             }
 
-            return string.Join("", palavras);
+            if (str.StartsWith("#"))
+                return string.Join("", palavras);
+
+            return "#" + string.Join("", palavras);
         }
 
         static string UppercaseFirst(string s)
