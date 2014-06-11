@@ -10,7 +10,12 @@ namespace Postback.Dominio
 
         public Tag(string nome)
         {
-            Nome = nome.ToLower();
+            Nome = HashTagHandle(nome);
+        }
+
+        private string HashTagHandle(string nome)
+        {
+            return nome.ToLower().Replace("#", "").Insert(0, "#");
         }
 
         public override string ToString()
